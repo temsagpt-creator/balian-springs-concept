@@ -11,139 +11,175 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Hanken+Grotesk:wght@400;500&display=swap">
-<link rel="preload" as="image" href="assets/img/v3-dusk-phone.webp" media="(max-width: 699px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/v3-dusk-1600.webp" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/v6-dusk-poster-720.webp" media="(max-width: 767px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/v6-dusk-poster-1920.webp" media="(min-width: 768px)" fetchpriority="high">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
   document.documentElement.classList.add('js');
   setTimeout(function () { if (!window.__calm) document.documentElement.classList.remove('js'); }, 4000);
 </script>
 <style>
-/* Balian Springs homepage concept v5, direction A: editorial calm, slowly alive, set asymmetrically.
+/* Balian Springs homepage concept v6, direction A: editorial calm on a 12-column grid.
    One display face (Bodoni Moda, optical sizes) and one quiet text face (Hanken Grotesk).
-   Deep teal night for the cover and the sauna room, warm limestone paper, a stone band; Balian's own teal for links and the visit button.
-   Motion: the photographs breathe (a very slow drift), sections settle in as they arrive. Nothing moves on hover. All of it stops for reduced motion. */
+   Deep teal night for the header, the cover panel, the sauna room and the footer; warm limestone paper; a stone band.
+   Balian's own teal for links and buttons on paper. Motion: the cover film, a slow drift on two photographs,
+   sections settling in. Nothing moves on hover. All of it stops for reduced motion. */
 :root{
   --paper:#F3ECE1;      /* warm limestone, never pure white */
   --stone:#E9DFCF;      /* the visit band */
   --ink:#1E302F;        /* deep teal ink: all text on paper and stone */
   --soft:#4E5C5A;       /* captions on paper */
   --deep:#1B2E2D;       /* the dark rooms: text on it is paper */
-  --soft-dark:#CDC3B4;  /* captions on deep */
+  --soft-dark:#CDC3B4;  /* captions and labels on deep */
+  --teal:#3E5C5B;       /* Balian's own brand teal: button and links on paper */
+  --hair:#C9B9A1;       /* hairline rules on paper, never text */
   --hair-dark:#3C5250;  /* hairlines on deep, never text */
-  --line-dark:#A9B6B4;  /* the sign-up field's underline on deep: 3:1 or more */
-  --teal:#3E5C5B;       /* Balian's own brand teal: button and links */
-  --hair:#C9B9A1;       /* hairline rules, never text */
+  --line-dark:#A9B6B4;  /* field and outline buttons on deep: 3:1 or more */
   --wait:#E3D8C7;       /* photo frame colour while an image loads */
-  --m:clamp(24px, 5vw, 96px);
+  --m:clamp(24px, 5vw, 96px);      /* page margin */
+  --g:clamp(16px, 1.8vw, 28px);    /* column gutter */
+  --sp:112px;                      /* the one space between sections */
+  --hdr:64px;
   --measure:34rem;
   --ease:cubic-bezier(.22,.61,.36,1);
   --display:"Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
   --text:"Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
 }
+@media (min-width:768px){ :root{ --sp:152px; --hdr:80px; } }
+@media (min-width:1024px){ :root{ --sp:clamp(176px, 14vw, 216px); --hdr:88px; } }
+
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
-img{display:block;max-width:100%;height:auto}
-p{margin:0}
-h1,h2,h3{font-weight:400}
+body.is-locked{overflow:hidden}
+img,video{display:block;max-width:100%;height:auto}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3{font-weight:400;margin:0}
 a{color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em}
 a:hover{color:var(--ink)}
-a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 figure{margin:0}
 .ph{position:relative;overflow:hidden;background:var(--wait)}
 .ph img{width:100%}
 .cap{margin-top:14px;font-size:16px;line-height:1.5;color:var(--soft);letter-spacing:.01em}
 .skip{position:absolute;left:-9999px}
-.skip:focus{left:var(--m);top:8px;background:var(--paper);padding:10px 14px;z-index:5}
+.skip:focus{left:var(--m);top:8px;background:var(--paper);color:var(--ink);padding:10px 14px;z-index:30}
 
-/* display type: Bodoni Moda at its large optical size, set tight */
-.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.028em;line-height:1.02;margin:0;text-wrap:balance}
-
-/* ---------- Cover: icon, name, one line, one button, one photo sequence ---------- */
-.cover{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;background:var(--deep);color:var(--paper)}
-.cover .btn{background:var(--paper);color:var(--ink)}
-.cover .btn:hover{background:var(--stone);color:var(--ink)}
-.cover a:focus-visible{outline-color:var(--paper)}
-.cover__top{display:flex;align-items:center;justify-content:space-between;padding:16px var(--m) 0}
-.brand{display:inline-flex;align-items:center;min-height:48px;min-width:44px;text-decoration:none}
-.brand img{height:40px;width:auto}
-.nav{display:none}
-.cover__words{padding:0 var(--m)}
-.mast{margin:14px 0 0;font-size:calc((100vw - 2 * var(--m)) / 6.10);line-height:1;letter-spacing:-.035em;white-space:nowrap;overflow-x:clip;padding-bottom:.12em}
-.deck{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding:6px 0 28px}
-.lede{font-size:19px;line-height:1.4}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--teal);color:var(--paper);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.cover__photo{position:relative;flex:1 1 auto;min-height:320px;overflow:hidden;background:#26393A}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 2600ms ease-in-out}
-.slide.is-on{opacity:1}
-.cover__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-
-/* ---------- Sections (phone first) ---------- */
-.sec{margin-top:128px}
-.sec h2{font-size:44px}
+/* type: one display face, one size per level */
+.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.028em;line-height:1.04;text-wrap:balance}
+.sec h2{font-size:40px}
 .body{max-width:var(--measure);margin-top:18px}
 .more{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:500;letter-spacing:.02em}
-.txt{padding:0 var(--m)}
 
-/* I. water: the carved gate, edge to edge, a quiet caption beneath */
-.sec--pools .ph{margin-left:14%}                 /* the gate bleeds off the right edge */
-.sec--pools .cap{padding:0 var(--m) 0 calc(14% + 0px)}
+/* buttons: one shape, three surfaces */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:1px solid transparent;background:var(--teal);color:var(--paper);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn--light{background:var(--paper);color:var(--ink)}
+.btn--light:hover{background:var(--stone);color:var(--ink)}
+.btn--line{background:transparent;color:var(--paper);border-color:var(--line-dark);min-height:44px;padding:0 18px}
+.btn--line:hover{background:var(--paper);color:var(--ink)}
+
+/* the 12-column grid every section snaps to (from 1024px) */
+.wrap{padding-inline:var(--m)}
+
+/* ---------- Header ---------- */
+.hdr{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--hdr);padding-inline:var(--m);background:var(--deep);color:var(--paper)}
+.mark{display:inline-flex;align-items:center;gap:12px;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none}
+.mark img{height:34px;width:auto}
+.mark span{display:none;font-family:var(--display);font-optical-sizing:auto;font-size:22px;letter-spacing:-.01em;line-height:1}
+.hdr__nav{display:none}
+.hdr__end{display:flex;align-items:center;gap:8px}
+.hdr__book--wide{display:none}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:64px;padding:0 6px;margin-right:-6px;border:0;background:transparent;color:var(--paper);font:inherit;font-size:16px;font-weight:500;letter-spacing:.04em;cursor:pointer}
+.menu-btn:hover{text-decoration:underline;text-underline-offset:.28em}
+
+/* the menu: a full-screen teal room */
+.menu{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;overflow-y:auto;padding:0 var(--m) 40px;background:var(--deep);color:var(--paper)}
+.menu[hidden]{display:none}
+.menu__top{display:flex;align-items:center;justify-content:space-between;height:var(--hdr);flex:none}
+.menu__close{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:64px;padding:0 6px;margin-right:-6px;border:0;background:transparent;color:var(--paper);font:inherit;font-size:16px;font-weight:500;letter-spacing:.04em;cursor:pointer}
+.menu ul{margin:32px 0 0;padding:0;list-style:none}
+.menu li a{display:flex;align-items:center;min-height:56px;color:var(--paper);text-decoration:none;font-family:var(--display);font-optical-sizing:auto;font-size:36px;letter-spacing:-.02em;line-height:1.1}
+.menu li a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.menu .btn{margin-top:32px;align-self:flex-start}
+.menu__facts{margin-top:40px;padding-top:24px;border-top:1px solid var(--hair-dark)}
+.menu__facts a{display:inline-block;padding:10px 0;color:var(--paper)}
+.menu__facts p{color:var(--paper)}
+
+/* ---------- Cover (phone first): the film, then the name, one line, one button ---------- */
+.hero{display:flex;flex-direction:column;background:var(--deep);color:var(--paper)}
+.hero__media{position:relative;order:-1;height:56vh;height:56svh;min-height:300px;overflow:hidden;background:#26393A}
+.hero__media img,.hero__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero__media video{opacity:0;transition:opacity 1400ms ease-in-out}
+.hero__media video.is-on{opacity:1}
+.hero__panel{padding:26px var(--m) 30px}
+.eyebrow{display:none;margin:0 0 20px;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--soft-dark)}
+.hero__title{font-size:min(calc((100vw - 2 * var(--m)) / 6.15), 96px);line-height:1;letter-spacing:-.035em;padding-bottom:.08em;white-space:nowrap}
+.hero__title span{display:inline}
+.hero__lede{margin-top:10px;font-size:19px;line-height:1.4}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:22px}
+.hero__actions .btn{width:100%}
+.tlink{display:none;align-items:center;min-height:44px;color:var(--paper);font-weight:500;letter-spacing:.02em}
+.tlink:hover{color:var(--paper);text-decoration-thickness:2px}
+
+/* ---------- Sections (phone first) ---------- */
+.sec{margin-top:var(--sp)}
+.txt{padding-inline:var(--m)}
+
+/* I. water: the carved gate bleeds off the right edge, a quiet caption beneath it */
+.sec--pools .ph{margin-left:14%}
+.sec--pools .cap{padding-left:14%;padding-right:var(--m)}
 .sec--pools .txt{padding-top:40px}
 
-/* II. heat: the dark room, a gallery pair (a tall portrait beside a landscape) */
-.sec--saunas{background:var(--deep);color:var(--paper);padding:96px var(--m) 104px}
+/* II. heat: the dark room. Salt bleeds off the left edge, gold laid over its corner, a large 8 */
+.sec--saunas{position:relative;background:var(--deep);color:var(--paper);padding:var(--sp) var(--m)}
 .sec--saunas a{color:var(--paper)}
 .sec--saunas a:hover{color:var(--paper);text-decoration-thickness:2px}
 .sec--saunas .ph{background:#2A403E}
 .sec--saunas .cap{color:var(--soft-dark)}
-.sec--saunas{position:relative}
 .num{margin:0 0 8px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:168px;line-height:.8;letter-spacing:-.04em;text-align:right}
-.gal__tall{width:calc(80% + var(--m));margin-left:calc(-1 * var(--m))}   /* salt bleeds off the left edge */
-.gal__wide{position:relative;z-index:1;width:64%;margin:-88px 0 0 auto}   /* gold laid over the salt's corner */
+.gal__tall{width:calc(80% + var(--m));margin-left:calc(-1 * var(--m))}
+.gal__wide{position:relative;z-index:1;width:64%;margin:-88px 0 0 auto}
 .gal__wide .ph{outline:8px solid var(--deep)}
-.gal__wide .cap{margin-top:18px}
+.gal__wide .cap{margin-top:18px;text-align:right}
 .sec--saunas .txt{padding:48px 0 0}
-.sec--saunas + .sec{margin-top:120px}
 
-/* III. stillness: words first, the lantern room set in from the left */
+/* III. stillness: words first, the lantern room set in */
 .sec--lounges figure{margin:40px var(--m) 0 calc(var(--m) + 18%)}
 
-/* IV. Lilikoi: edge to edge again */
-.sec--lilikoi .txt{position:relative;z-index:1;margin:-64px 0 0 12%;padding:32px var(--m) 0 28px;background:var(--paper)}   /* a paper panel crossing the photo's lower edge */
+/* IV. Lilikoi: the room edge to edge, the words on a paper panel crossing its lower edge */
+.sec--lilikoi .txt{position:relative;z-index:1;margin:-64px 0 0 14%;padding:32px var(--m) 0 28px;background:var(--paper)}
 
 /* V. visit: a stone band, a printed fare card */
-.sec--visit{background:var(--stone);padding:88px var(--m) 96px}
-.sec--visit h2{font-size:40px}
-.label{display:flex;align-items:center;gap:16px;margin:0 0 28px;font-size:16px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.sec--visit{background:var(--stone);padding:var(--sp) var(--m)}
+.label{display:flex;align-items:center;gap:16px;margin:0 0 24px;font-size:16px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
 .label::after{content:"";flex:1 1 auto;height:1px;background:var(--hair)}
 .fares{display:grid;grid-template-columns:1fr 1fr;margin:36px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .fare{padding:22px 0 24px}
 .fare + .fare{padding-left:20px;border-left:1px solid var(--hair)}
-.fare h3{margin:0;font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
+.fare h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
 .fare .price{display:block;margin:8px 0 6px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.02em}
 .fare .price span{font-size:.5em;vertical-align:.62em;margin-right:.06em;letter-spacing:0}
 .fare p{font-size:16px;line-height:1.45}
 .incl{margin-top:20px}
-.facts{margin:40px 0 0;padding:0}
+.facts{margin:36px 0 0;padding:0}
 .facts div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--hair)}
 .facts div:last-child{border-bottom:1px solid var(--hair)}
 .facts dt{font-weight:500}
 .facts dd{margin:0}
 .facts dd a{display:block;min-height:44px;padding:8px 0;margin:-8px 0}
 .facts dd a + a{margin-top:0}
-.visit__cta{margin-top:40px}
+.visit__cta{margin-top:36px}
 
-/* the closing photograph, edge to edge, its caption on paper */
+/* the closing photograph, edge to edge, its caption on the margin */
 .ending .cap{padding:0 var(--m) 32px}
 
 /* ---------- Footer: the night again, a complete site map ---------- */
 .foot{background:var(--deep);color:var(--paper);padding:72px var(--m) 32px}
 .foot a{color:var(--paper)}
 .foot a:hover{color:var(--paper);text-decoration-thickness:2px}
-.foot a:focus-visible{outline-color:var(--paper)}
 .foot__intro{display:grid;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--hair-dark)}
+.foot__intro .mark img{height:40px}
 .foot__care{margin-top:18px;max-width:30rem;font-family:var(--display);font-optical-sizing:auto;font-size:26px;line-height:1.25;letter-spacing:-.01em}
 .club label{display:block;font-weight:500;letter-spacing:.02em}
 .club p{margin-top:4px;color:var(--soft-dark);max-width:30rem}
@@ -151,170 +187,209 @@ figure{margin:0}
 .club input{flex:1 1 auto;min-width:0;min-height:52px;padding:0;border:0;border-radius:0;background:transparent;color:var(--paper);font:inherit;font-size:17px}
 .club input::placeholder{color:var(--soft-dark);opacity:1}
 .club input:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
-.club button{flex:0 0 auto;min-height:52px;min-width:88px;padding:0 0 0 20px;border:0;background:transparent;color:var(--paper);font:inherit;font-weight:500;letter-spacing:.04em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;cursor:pointer}
+.club button{flex:0 0 auto;min-height:52px;min-width:88px;padding:0 0 0 20px;border:0;background:transparent;color:var(--paper);font:inherit;font-weight:500;letter-spacing:.04em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;cursor:pointer;text-align:right}
 .club button:hover{text-decoration-thickness:2px}
-.club button:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
 .foot__map{display:grid;grid-template-columns:1fr 1fr;gap:40px 24px;padding:48px 0;border-bottom:1px solid var(--hair-dark)}
 .foot__visit{grid-column:1 / -1}
 .foot h3{margin:0 0 10px;font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.04em;color:var(--soft-dark)}
 .foot ul{margin:0;padding:0;list-style:none}
-.foot ul a,.foot__visit a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none}
-.foot ul a:hover,.foot__visit a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.foot ul a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none}
+.foot ul a:hover{text-decoration:underline;text-decoration-thickness:1px}
 .foot address{font-style:normal}
-.foot address a{display:inline-block;padding:10px 0;line-height:1.5}
+.foot address a{display:inline-block;padding:10px 0;line-height:1.5;text-decoration:none}
+.foot address a:hover{text-decoration:underline}
 .foot__hours{margin-top:8px}
 .foot__legal{display:flex;flex-wrap:wrap;align-items:center;gap:0 28px;padding-top:20px}
 .foot__legal a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;font-size:16px}
 .fine{flex:1 1 100%;margin-top:12px;font-size:14px;line-height:1.5;color:var(--soft-dark)}
 
-/* ---------- Tablet ---------- */
-@media (min-width:700px){
+/* ---------- Tablet (768 to 1023): the phone layout, given room ---------- */
+@media (min-width:768px){
   body{font-size:18px}
-  .nav{display:flex;gap:22px;margin-right:-4px}
-  .nav a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:0 4px;color:var(--paper);text-decoration:none;font-size:16px;letter-spacing:.02em}
-  .nav a:hover{color:var(--paper);text-decoration:underline}
-  .cover__top{padding-top:20px}
-  .deck{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;padding:8px 0 36px}
-  .lede{font-size:21px}
-  .cover__photo{flex:1 0 auto;min-height:max(70vh, 440px)}
-  .cover__photo img{object-position:50% 40%}
-  .slide--glow img{object-position:50% 60%}
-  .sec{margin-top:176px}
-  .sec h2{font-size:64px}
-  .sec--pools .txt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--measure));column-gap:48px;padding-top:56px}
-  .sec--pools .body{margin-top:12px}
-  .sec--saunas{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:56px;align-items:start;padding:128px var(--m) 128px 0}
-  .num{grid-column:2;grid-row:1;font-size:220px;margin:0}
-  .gal__tall{width:auto;margin:0;grid-column:1;grid-row:1 / span 3}
-  .gal__wide{width:auto;margin:0 0 0 -96px;grid-column:2;grid-row:2}
-  .gal__wide .cap{margin-left:120px}
-  .sec--saunas .txt{padding:48px 0 0;grid-column:2;grid-row:3}
-  .sec--saunas + .sec{margin-top:176px}
-  .sec--lounges{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;align-items:start;padding:0 var(--m)}
-  .sec--lounges .txt{padding:96px 0 0}
-  .sec--lounges figure{margin:0;max-width:534px;justify-self:end}
-  .sec--lilikoi .txt{margin:-96px 0 0 auto;padding:48px var(--m) 0 48px;max-width:calc(var(--measure) + 48px + var(--m))}
-  .sec--visit{padding:128px var(--m) 136px}
-  .sec--visit h2{font-size:60px}
+  .mark span{display:inline}
+  .hdr__book--wide{display:inline-flex}
+  .hdr__book--short{display:none}
+  .hdr__end{gap:24px}
+  .hero__media{height:56vh;height:56svh}
+  .hero__panel{padding:40px var(--m) 48px}
+  .eyebrow{display:block}
+  .hero__lede{font-size:21px}
+  .hero__actions{margin-top:28px}
+  .hero__actions .btn{width:auto}
+  .tlink{display:inline-flex}
+  .sec h2{font-size:56px}
+  .num{font-size:220px}
   .fare + .fare{padding-left:32px}
   .fare .price{font-size:76px}
   .facts div{grid-template-columns:140px 1fr}
   .foot__intro{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}
   .foot__map{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .foot__visit{grid-column:1 / -1}
   .fine{flex:1 1 auto;margin:0 0 0 auto}
 }
 
-/* ---------- Desktop: editorial spreads ---------- */
-@media (min-width:1100px){
-  .sec{margin-top:220px}
-  .sec h2{font-size:clamp(64px, 5vw, 80px)}
-  /* I. the gate, edge to edge and tall; the title left, the words on the right at the title's top */
-  .sec--pools .ph{margin-left:16vw}
-  .sec--pools .cap{padding-left:16vw}
-  .sec--pools .ph img{height:min(84vh, 47.25vw);object-fit:cover}
-  .sec--pools .txt{grid-template-columns:minmax(0,1fr) var(--measure);column-gap:clamp(64px, 8vw, 160px);padding-top:64px}
-  .sec--pools .body{margin-top:14px}
-  /* II. the dark room: the salt wall standing tall on the left, the gold room and the words on the right */
-  /* II. the dark room: the salt wall bleeds off the left edge, the gold room laid over its edge, a large 8 against the right margin */
-  .sec--saunas{grid-template-columns:minmax(0,44vw) minmax(0,1fr);column-gap:0;padding:168px var(--m) 176px 0}
-  .num{font-size:clamp(240px, 24vw, 380px);line-height:.74;margin-top:-8px}
-  .gal__wide{width:min(560px, 38vw);margin:-40px 0 0 -120px}
-  .gal__wide .cap{margin-left:144px}
-  .sec--saunas .txt{padding:64px 0 0 clamp(48px, 7vw, 120px);max-width:calc(var(--measure) + clamp(48px, 7vw, 120px))}
-  .sec--saunas + .sec{margin-top:220px}
-  /* III. words high on the left, the lantern room standing right of centre */
-  .sec--lounges{grid-template-columns:var(--measure) minmax(0,1fr);column-gap:clamp(64px, 8vw, 160px);padding:0 var(--m) 0 calc(var(--m) + 8vw)}
-  .sec--lounges .txt{padding-top:140px}
-  .sec--lounges figure{justify-self:start;width:100%;position:relative;z-index:1;margin-top:-300px}   /* the lantern room rises into the dark room above */
-  /* IV. Lilikoi: the room bleeds off the left edge, words low on the right */
-  .sec--lilikoi{display:grid;grid-template-columns:minmax(0,1fr) var(--measure);column-gap:clamp(64px, 8vw, 160px);align-items:end;padding-right:var(--m)}
-  .sec--lilikoi .txt{max-width:none;margin:0 0 0 calc(-1 * (clamp(64px, 8vw, 160px) + 104px));padding:64px 0 0 72px}
-  /* V. visit: title on the left, the fare card and the facts on the right */
-  .sec--visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,36rem);column-gap:clamp(64px, 8vw, 160px);align-items:start;padding:176px var(--m) 184px}
+/* ---------- Desktop (1024 and up): header plus cover is one screen; every block on the 12-column grid ---------- */
+@media (min-width:1024px){
+  .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-inline:var(--m)}
+  .sub{display:grid;grid-template-columns:subgrid}
+
+  /* header: mark and name, the five rooms, the booking */
+  .hdr__nav{display:flex;gap:clamp(28px, 2.6vw, 40px);margin-left:auto}
+  .hdr__nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none;font-size:15px;letter-spacing:.04em}
+  .hdr__nav a:hover{text-decoration:underline;text-underline-offset:.32em}
+  .hdr__end{gap:clamp(28px, 2.6vw, 40px)}
+  .menu-btn{display:none}
+
+  /* cover: a teal panel over five columns, the film over seven, bleeding right */
+  .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-inline:var(--m);height:calc(100vh - var(--hdr));height:calc(100svh - var(--hdr));min-height:600px;max-height:1100px}
+  .hero__panel{grid-column:1 / 6;display:flex;flex-direction:column;justify-content:center;padding:48px 0 88px}  /* a slight optical lift */
+  .hero__media{grid-column:6 / 13;order:0;height:auto;min-height:0;margin-left:calc(-.5 * var(--g));margin-right:calc(-1 * var(--m))}
+  .hero__media img,.hero__media video{object-position:47% 55%}
+  .hero__title{font-size:clamp(64px, 6.5vw, 104px);line-height:.94;white-space:normal}
+  .hero__title span{display:block}
+  .hero__lede{margin-top:22px;font-size:20px}
+  .hero__actions{margin-top:36px}
+
+  /* I. the gate over cols 3 to 12 bleeding right; the title on cols 1 to 6, the words from col 8 */
+  .sec--pools figure{grid-column:3 / 13;margin-right:calc(-1 * var(--m))}
+  .sec--pools .ph{margin-left:0}
+  .sec--pools .ph img{height:min(80vh, 46vw);object-fit:cover}
+  .sec--pools .cap{padding:0}
+  .sec--pools .txt{grid-column:1 / 13;padding:56px 0 0}
+  .sec--pools h2{grid-column:1 / 7}
+  .sec--pools .txt > div{grid-column:8 / 13}
+  .sec--pools .body{margin-top:12px}
+
+  /* II. the dark room on the grid */
+  .sec--saunas{padding:var(--sp) var(--m)}
+  .num{grid-column:10 / 13;grid-row:1;justify-self:end;margin:0;font-size:clamp(240px, 22vw, 360px);line-height:.74}
+  .gal__tall{grid-column:1 / 7;grid-row:1 / 4;width:auto;margin-left:calc(-1 * var(--m))}
+  .gal__wide{grid-column:6 / 11;grid-row:2;width:auto;margin:0}
+  .gal__wide .ph{outline-width:10px}
+  .gal__wide .cap{margin-left:calc(40% + var(--g))}   /* the caption starts clear of the salt photo */
+  .sec--saunas .txt{grid-column:7 / 12;grid-row:3;padding:56px 0 0}
+
+  /* III. the words from col 2, the lantern room on cols 8 to 11 rising into the dark room */
+  .sec--lounges .txt{grid-column:2 / 7;grid-row:1;align-self:center;padding:0}
+  .sec--lounges figure{grid-column:8 / 12;grid-row:1;position:relative;z-index:1;margin:calc(-.6 * var(--sp)) 0 0}
+
+  /* IV. the room over cols 1 to 8 bleeding left; the words from col 8 on a panel crossing its edge */
+  .sec--lilikoi figure{grid-column:1 / 9;grid-row:1;margin-left:calc(-1 * var(--m))}
+  .sec--lilikoi .txt{grid-column:8 / 13;grid-row:1;align-self:end;margin:0 0 0 -56px;padding:56px 0 0 56px}
+
+  /* V. visit: the title on cols 1 to 6, the fare card from col 8 */
+  .visit__head{grid-column:1 / 7}
+  .visit__card{grid-column:8 / 13}
   .fares{margin-top:0}
-  .sec--visit h2{font-size:clamp(64px, 5vw, 80px)}
   .fare .price{font-size:88px}
-  .ending .ph img{height:min(80vh, 42.86vw);object-fit:cover}
-  .foot{padding-top:96px}
-  .foot__intro{grid-template-columns:minmax(0,1fr) minmax(0,30rem);column-gap:clamp(64px, 8vw, 160px)}
-  .foot__map{grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));column-gap:40px;padding:56px 0}
-  .foot__visit{grid-column:auto}
+
+  .sec h2{font-size:clamp(56px, 4.6vw, 72px)}
+
+  /* footer on the same grid */
+  .foot{padding:96px var(--m) 32px}
+  .foot__intro{grid-column:1 / 13;align-items:end;column-gap:var(--g)}
+  .foot__intro > div{grid-column:1 / 7}
+  .foot__intro .club{grid-column:8 / 13}
+  .foot__map{grid-column:1 / 13;padding:56px 0;column-gap:var(--g)}
+  .foot__visit{grid-column:1 / 5}
+  .foot__map > div:nth-child(2){grid-column:5 / 7}
+  .foot__map > div:nth-child(3){grid-column:7 / 9}
+  .foot__map > div:nth-child(4){grid-column:9 / 11}
+  .foot__map > div:nth-child(5){grid-column:11 / 13}
+  .foot__legal{grid-column:1 / 13}
 }
 @media (min-width:1700px){
-  .mast{font-size:calc((1700px - 2 * var(--m)) / 6.10)}
+  .hero__title{font-size:104px}
 }
 
 /* ---------- Motion: slow, eased, never on hover; off for reduced motion ---------- */
 @media (prefers-reduced-motion:no-preference){
-  /* the photographs breathe: a very slow drift between 1.03 and 1.08, alternating direction */
   .kb{transform:scale(1.03);animation:kb-a 18s ease-in-out infinite alternate both;animation-play-state:paused;will-change:transform;backface-visibility:hidden}
   .kb--b{animation-name:kb-b;animation-duration:20s}
-  .kb--c{animation-name:kb-c;animation-duration:16s}
   .on .kb{animation-play-state:running}
   @keyframes kb-a{from{transform:scale(1.03) translate3d(0,0,0)}to{transform:scale(1.08) translate3d(-1.2%,-.8%,0)}}
   @keyframes kb-b{from{transform:scale(1.08) translate3d(1%,.4%,0)}to{transform:scale(1.03) translate3d(0,0,0)}}
-  @keyframes kb-c{from{transform:scale(1.04) translate3d(.8%,-.6%,0)}to{transform:scale(1.08) translate3d(-.6%,.6%,0)}}
-  /* sections settle in as they arrive: a soft fade and a 16px rise */
   .js .rv{opacity:0;transform:translate3d(0,16px,0);transition:opacity 1200ms var(--ease),transform 1200ms var(--ease)}
   .js .rv.in{opacity:1;transform:none}
   .js .rv--2{transition-delay:160ms}
   .js .rv--3{transition-delay:320ms}
 }
 @media (prefers-reduced-motion:reduce){
-  .slide{transition:none}
+  .hero__media video{display:none}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="cover" id="top">
-  <div class="cover__top">
-    <a class="brand" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt="Balian Springs"></a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#pools">Pools</a>
-      <a href="#saunas">Saunas</a>
-      <a href="#lounges">Lounges</a>
-      <a href="#lilikoi">Lilikoi</a>
-      <a href="#visit">Visit</a>
-    </nav>
+<header class="hdr" id="top">
+  <a class="mark" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt=""><span>Balian Springs</span></a>
+  <nav class="hdr__nav" aria-label="Main">
+    <a href="#pools">Pools</a>
+    <a href="#saunas">Saunas</a>
+    <a href="#lounges">Lounges</a>
+    <a href="#lilikoi">Lilikoi</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <div class="hdr__end">
+    <a class="btn btn--line hdr__book--wide" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+    <a class="btn btn--line hdr__book--short" href="https://baliansprings.zenoti.com/webstore" aria-label="Book a day pass">Book</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
-  <div class="cover__words">
-    <h1 class="mast d">Balian Springs</h1>
-    <div class="deck">
-      <p class="lede">Healing through water.</p>
-      <a class="btn" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
-    </div>
-  </div>
-  <figure class="cover__photo kbw" id="hero">
-    <picture class="slide is-on">
-      <source media="(max-width: 699px)" srcset="assets/img/v3-dusk-phone.webp" width="900" height="1364">
-      <img class="kb" src="assets/img/v3-dusk-1600.webp" srcset="assets/img/v3-dusk-1600.webp 1600w, assets/img/v3-dusk-2400.webp 2400w" sizes="100vw" width="1600" height="1200" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
-    </picture>
-    <picture class="slide slide--glow" aria-hidden="true">
-      <source media="(max-width: 699px)" data-srcset="assets/img/v4-glow-phone.webp" width="660" height="1000">
-      <img class="kb kb--b" data-src="assets/img/v4-glow-1500.webp" width="1500" height="620" alt="">
-    </picture>
-    <picture class="slide" aria-hidden="true">
-      <source media="(max-width: 699px)" data-srcset="assets/img/v4-roof-phone.webp" width="900" height="1364">
-      <img class="kb kb--c" data-src="assets/img/v4-roof-1600.webp" width="1600" height="900" alt="">
-    </picture>
-  </figure>
 </header>
 
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="menu__top">
+    <a class="mark" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt=""></a>
+    <button class="menu__close" type="button">Close</button>
+  </div>
+  <ul>
+    <li><a href="#pools">Pools</a></li>
+    <li><a href="#saunas">Saunas</a></li>
+    <li><a href="#lounges">Lounges</a></li>
+    <li><a href="#lilikoi">Lilikoi</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+  <div class="menu__facts">
+    <a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
+    <a href="tel:+17034369107">(703) 436-9107</a>
+    <p>Open Monday to Sunday, 9:00 am to 9:30 pm</p>
+  </div>
+</div>
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero__panel">
+    <p class="eyebrow">Alexandria, Virginia</p>
+    <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span></h1>
+    <p class="hero__lede">Healing through water.</p>
+    <div class="hero__actions">
+      <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+      <a class="tlink" href="#visit">Plan your visit</a>
+    </div>
+  </div>
+  <figure class="hero__media" id="hero">
+    <picture>
+      <source media="(max-width: 767px)" srcset="assets/img/v6-dusk-poster-720.webp" width="720" height="900">
+      <img src="assets/img/v6-dusk-poster-1920.webp" width="1920" height="1080" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
+    </picture>
+    <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
+      data-phone-mp4="assets/img/v6-dusk-loop-720.mp4" data-phone-webm="assets/img/v6-dusk-loop-720.webm"
+      data-wide-mp4="assets/img/v6-dusk-loop-1600.mp4" data-wide-webm="assets/img/v6-dusk-loop-1600.webm"></video>
+  </figure>
+</section>
+
 <main id="main">
-  <section class="sec sec--pools" id="pools" aria-labelledby="pools-h">
+  <section class="sec sec--pools grid" id="pools" aria-labelledby="pools-h">
     <figure>
       <div class="ph kbw">
         <picture>
-          <source media="(max-width: 699px)" srcset="assets/img/v3-gate-phone.webp" width="800" height="1000">
-          <img class="kb kb--b" src="assets/img/v3-gate-1500.webp" srcset="assets/img/v3-gate-900.webp 900w, assets/img/v3-gate-1500.webp 1500w" sizes="100vw" width="1500" height="844" loading="lazy" alt="The carved Balinese gate and palms rising from the indoor hydrotherapy pool">
+          <source media="(max-width: 767px)" srcset="assets/img/v3-gate-phone.webp" width="800" height="1000">
+          <img class="kb kb--b" src="assets/img/v3-gate-1500.webp" srcset="assets/img/v3-gate-900.webp 900w, assets/img/v3-gate-1500.webp 1500w" sizes="(min-width: 1024px) 85vw, 100vw" width="1500" height="844" loading="lazy" alt="The carved Balinese gate and palms rising from the indoor hydrotherapy pool">
         </picture>
       </div>
       <figcaption class="cap rv">The carved gate over the indoor hydrotherapy pool.</figcaption>
     </figure>
-    <div class="txt rv">
+    <div class="txt sub rv">
       <h2 class="d" id="pools-h">Renew your spirit</h2>
       <div>
         <p class="body">Indoor and rooftop hydrotherapy pools, coed plunge pools and a Hinoki bath of Japanese cypress.</p>
@@ -323,16 +398,16 @@ figure{margin:0}
     </div>
   </section>
 
-  <section class="sec sec--saunas" id="saunas" aria-labelledby="saunas-h">
+  <section class="sec sec--saunas grid" id="saunas" aria-labelledby="saunas-h">
     <p class="num rv" aria-hidden="true">8</p>
     <figure class="gal__tall rv">
       <div class="ph">
-        <img src="assets/img/v3-salt-800.webp" srcset="assets/img/v3-salt-600.webp 600w, assets/img/v3-salt-800.webp 800w" sizes="(min-width: 1100px) 44vw, (min-width: 700px) 45vw, 86vw" width="800" height="1000" loading="lazy" alt="Himalayan salt walls glowing amber in the salt sauna">
+        <img src="assets/img/v3-salt-800.webp" srcset="assets/img/v3-salt-600.webp 600w, assets/img/v3-salt-800.webp 800w" sizes="(min-width: 1024px) 50vw, 86vw" width="800" height="1000" loading="lazy" alt="Himalayan salt walls glowing amber in the salt sauna">
       </div>
     </figure>
     <figure class="gal__wide rv rv--2">
       <div class="ph">
-        <img src="assets/img/v4-gold-1000.webp" srcset="assets/img/v4-gold-700.webp 700w, assets/img/v4-gold-1000.webp 1000w" sizes="(min-width: 1100px) 560px, (min-width: 700px) 50vw, 64vw" width="1000" height="667" loading="lazy" alt="The gold sauna, its walls and floor laid in gold tile">
+        <img src="assets/img/v4-gold-1000.webp" srcset="assets/img/v4-gold-700.webp 700w, assets/img/v4-gold-1000.webp 1000w" sizes="(min-width: 1024px) 40vw, 64vw" width="1000" height="667" loading="lazy" alt="The gold sauna, its walls and floor laid in gold tile">
       </div>
       <figcaption class="cap">Himalayan salt and gold, two of the eight saunas.</figcaption>
     </figure>
@@ -343,7 +418,7 @@ figure{margin:0}
     </div>
   </section>
 
-  <section class="sec sec--lounges" id="lounges" aria-labelledby="lounges-h">
+  <section class="sec sec--lounges grid" id="lounges" aria-labelledby="lounges-h">
     <div class="txt rv">
       <h2 class="d" id="lounges-h">Renew your mind</h2>
       <p class="body">Therapeutic lounges designed to help you unwind, de-stress and find inner peace.</p>
@@ -356,12 +431,12 @@ figure{margin:0}
     </figure>
   </section>
 
-  <section class="sec sec--lilikoi" id="lilikoi" aria-labelledby="lilikoi-h">
+  <section class="sec sec--lilikoi grid" id="lilikoi" aria-labelledby="lilikoi-h">
     <figure class="rv">
       <div class="ph">
         <picture>
-          <source media="(max-width: 699px)" srcset="assets/img/v3-lilikoi-phone.webp" width="800" height="640">
-          <img src="assets/img/v3-lilikoi-1500.webp" srcset="assets/img/v3-lilikoi-900.webp 900w, assets/img/v3-lilikoi-1500.webp 1500w" sizes="(min-width: 1100px) 60vw, 100vw" width="1500" height="938" loading="lazy" alt="A Lilikoi treatment room with plants and a stone wall">
+          <source media="(max-width: 767px)" srcset="assets/img/v3-lilikoi-phone.webp" width="800" height="640">
+          <img src="assets/img/v3-lilikoi-1500.webp" srcset="assets/img/v3-lilikoi-900.webp 900w, assets/img/v3-lilikoi-1500.webp 1500w" sizes="(min-width: 1024px) 66vw, 100vw" width="1500" height="938" loading="lazy" alt="A Lilikoi treatment room with plants and a stone wall">
         </picture>
       </div>
     </figure>
@@ -372,7 +447,7 @@ figure{margin:0}
     </div>
   </section>
 
-  <section class="sec sec--visit" id="visit" aria-labelledby="visit-h">
+  <section class="sec sec--visit grid" id="visit" aria-labelledby="visit-h">
     <div class="visit__head rv">
       <p class="label">Daily admission</p>
       <h2 class="d" id="visit-h">Become a member for the day</h2>
@@ -403,7 +478,7 @@ figure{margin:0}
   <figure class="ending">
     <div class="ph kbw">
       <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/v4-pool-phone.webp" width="800" height="1000">
+        <source media="(max-width: 767px)" srcset="assets/img/v4-pool-phone.webp" width="800" height="1000">
         <img class="kb" src="assets/img/v4-pool-1500.webp" sizes="100vw" width="1500" height="643" loading="lazy" alt="The indoor hydrotherapy pool beside the garden windows">
       </picture>
     </div>
@@ -411,10 +486,10 @@ figure{margin:0}
   </figure>
 </main>
 
-<footer class="foot">
-  <div class="foot__intro">
+<footer class="foot grid">
+  <div class="foot__intro sub">
     <div>
-      <a class="brand" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt="Balian Springs"></a>
+      <a class="mark" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt=""></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
     <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
@@ -427,7 +502,7 @@ figure{margin:0}
     </form>
   </div>
 
-  <nav class="foot__map" aria-label="Site">
+  <nav class="foot__map sub" aria-label="Site">
     <div class="foot__visit">
       <h3>Visit</h3>
       <address>
@@ -480,7 +555,7 @@ figure{margin:0}
   <div class="foot__legal">
     <a href="https://baliansprings.com/terms">Terms and Conditions</a>
     <a href="https://baliansprings.com/policies/">Policies</a>
-    <p class="fine">A homepage concept for Balian Springs. Photography and wording from baliansprings.com.</p>
+    <p class="fine">A homepage concept for Balian Springs. Photography and wording from baliansprings.com. Header motion made from a Balian Springs photograph.</p>
   </div>
 </footer>
 
@@ -491,6 +566,25 @@ figure{margin:0}
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in w;
   var each = function (sel, fn) { Array.prototype.forEach.call(d.querySelectorAll(sel), fn); };
+
+  /* the menu: full screen, Esc closes, focus stays inside, the page behind does not scroll */
+  var menu = d.getElementById('menu'), openBtn = d.querySelector('.menu-btn'), closeBtn = menu.querySelector('.menu__close');
+  function focusables() { return Array.prototype.filter.call(menu.querySelectorAll('a[href], button'), function (el) { return el.offsetParent !== null; }); }
+  function openMenu() { menu.hidden = false; d.body.classList.add('is-locked'); openBtn.setAttribute('aria-expanded', 'true'); closeBtn.focus(); }
+  function closeMenu(back) { menu.hidden = true; d.body.classList.remove('is-locked'); openBtn.setAttribute('aria-expanded', 'false'); if (back) openBtn.focus(); }
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', function () { closeMenu(true); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(false); });
+  d.addEventListener('keydown', function (e) {
+    if (menu.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+    if (e.key === 'Tab') {
+      var f = focusables(), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  w.matchMedia('(min-width: 1024px)').addEventListener('change', function (m) { if (m.matches && !menu.hidden) closeMenu(false); });
 
   /* sections settle in as they arrive */
   if (reduce || !hasIO) { each('.rv', function (el) { el.classList.add('in'); }); }
@@ -508,26 +602,25 @@ figure{margin:0}
   });
   each('.kbw', function (el) { kb.observe(el); });
 
-  /* the cover: a slow crossfade through three of their evening photographs.
-     Skipped on save-data and 2G, and it waits for the page to finish loading so the first photo stays fast. */
+  /* the cover film: their dusk pavilion photograph, gently in motion. It loads after the page has finished,
+     starts muted and inline, fades in over the same still, pauses off screen, and is skipped for reduced motion
+     (returned above), save-data and 2G. */
   var c = navigator.connection || {};
   if (c.saveData || /2g/.test(c.effectiveType || '')) return;
-  var hero = d.getElementById('hero');
-  var slides = Array.prototype.slice.call(hero.querySelectorAll('.slide'));
-  var i = 0, onScreen = true;
-  new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; }).observe(hero);
-  function wake(s) {
-    Array.prototype.forEach.call(s.querySelectorAll('[data-srcset]'), function (x) { x.srcset = x.getAttribute('data-srcset'); x.removeAttribute('data-srcset'); });
-    var im = s.querySelector('img[data-src]');
-    if (im) { im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); }
+  var hero = d.getElementById('hero'), v = hero.querySelector('video');
+  if (!v || !v.canPlayType) return;
+  function start() {
+    setTimeout(function () {
+      var k = w.matchMedia('(max-width: 767px)').matches ? 'phone' : 'wide';
+      var webm = v.getAttribute('data-' + k + '-webm'), mp4 = v.getAttribute('data-' + k + '-mp4');
+      v.src = v.canPlayType('video/mp4; codecs="avc1.640028"') ? mp4 : webm;   /* H.264 first: every phone plays it */
+      v.muted = true; v.defaultMuted = true; v.loop = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+      v.addEventListener('playing', function () { v.classList.add('is-on'); }, { once: true });
+      new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause();
+      }).observe(hero);
+    }, 600);
   }
-  function next() {
-    if (!onScreen || d.hidden) return;
-    var n = (i + 1) % slides.length, im = slides[n].querySelector('img');
-    if (!im.complete || !im.naturalWidth) return;
-    slides[i].classList.remove('is-on'); slides[n].classList.add('is-on'); i = n;
-  }
-  function start() { setTimeout(function () { slides.slice(1).forEach(wake); setInterval(next, 7000); }, 1200); }
   if (d.readyState === 'complete') start(); else w.addEventListener('load', start);
 })();
 </script>
