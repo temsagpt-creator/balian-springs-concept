@@ -170,9 +170,8 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   width: 32px;
   height: 1px;
   background: currentColor;
-  transition: width 0.3s ease;
 }
-.text-link:hover::after { width: 48px; }
+.text-link:hover { opacity: 0.8; }
 
 .actions { display: flex; flex-wrap: wrap; gap: 14px; }
 @media (max-width: 559px) {
@@ -443,9 +442,7 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.card:hover .card__media img { transform: scale(1.03); }
 .card__body { display: grid; gap: 10px; }
 .card__meta {
   display: flex;
@@ -979,5 +976,4 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
-  .card:hover .card__media img { transform: none; }
 }
