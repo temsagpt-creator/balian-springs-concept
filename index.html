@@ -116,6 +116,8 @@
   --text:"Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
 }
 @media (min-width:768px){ :root{ --sp:152px; --hdr:80px; } }
+@media (max-width:479px){ .hdr .mark span{display:none} }  /* phones: the drop mark beside Enter now and Menu */
+
 @media (min-width:1024px){ :root{ --sp:clamp(176px, 14vw, 216px); --hdr:88px; } }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -161,7 +163,6 @@ figure{margin:0}
 .mark span{display:inline;font-family:var(--display);font-optical-sizing:auto;font-size:20px;letter-spacing:-.01em;line-height:1}
 .hdr__nav{display:none}
 .hdr__end{display:flex;align-items:center;gap:8px}
-.hdr__book--wide{display:none}
 .menu-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:64px;padding:0 6px;margin-right:-6px;border:0;background:transparent;color:var(--paper);font:inherit;font-size:16px;font-weight:500;letter-spacing:.04em;cursor:pointer}
 .menu-btn:hover{text-decoration:underline;text-underline-offset:.28em}
 
@@ -225,7 +226,7 @@ figure{margin:0}
 .sec--visit{background:var(--stone);padding:var(--sp) var(--m)}
 .label{display:flex;align-items:center;gap:16px;margin:0 0 24px;font-size:16px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
 .label::after{content:"";flex:1 1 auto;height:1px;background:var(--hair);transform-origin:left}
-.fares{position:relative;display:grid;grid-template-columns:1fr 1fr;margin:36px 0 0;padding:0;list-style:none}
+.fares{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin:36px 0 0;padding:0;list-style:none}
 .fares::before,.fares::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--hair);transform-origin:left}
 .fares::before{top:0}
 .fares::after{bottom:0}
@@ -295,10 +296,8 @@ figure{margin:0}
 /* ---------- Tablet (768 to 1023): the phone layout, given room ---------- */
 @media (min-width:768px){
   body{font-size:18px}
-  .mark span{font-size:23px}
+  .mark span{display:inline;font-size:23px}
   .mark img{height:36px}
-  .hdr__book--wide{display:inline-flex}
-  .hdr__book--short{display:none}
   .hdr__end{gap:24px}
   .hero__media{height:56vh;height:56svh}
   .hero__panel{padding:40px var(--m) 48px}
@@ -439,8 +438,7 @@ figure{margin:0}
     <a href="#visit">Visit</a>
   </nav>
   <div class="hdr__end">
-    <a class="btn btn--line hdr__book--wide" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
-    <a class="btn btn--line hdr__book--short" href="https://baliansprings.zenoti.com/webstore" aria-label="Book a day pass">Book</a>
+    <a class="btn btn--line hdr__book" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -457,7 +455,7 @@ figure{margin:0}
     <li><a href="#lilikoi">Lilikoi</a></li>
     <li><a href="#visit">Visit</a></li>
   </ul>
-  <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+  <a class="btn btn--light" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
   <div class="menu__facts">
     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
     <a href="tel:+17034369107">(703) 436-9107</a>
@@ -471,7 +469,7 @@ figure{margin:0}
     <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span><span class="vh">, a day spa in Alexandria, Virginia</span></h1>
     <p class="hero__lede">Healing through water.</p>
     <div class="hero__actions">
-      <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+      <a class="btn btn--light" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
       <a class="tlink" href="#visit">Plan your visit</a>
     </div>
   </div>
@@ -581,7 +579,6 @@ figure{margin:0}
         <div><dt>Contact</dt><dd><a href="tel:+17034369107">(703) 436-9107</a><a href="mailto:hello@baliansprings.com">hello@baliansprings.com</a></dd></div>
       </dl>
       <p class="welcome">We welcome guests from across Northern Virginia and Washington, DC.</p>
-      <a class="btn visit__cta" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
     </div>
   </section>
 
@@ -635,7 +632,7 @@ figure{margin:0}
     <div>
       <h3>Plan</h3>
       <ul>
-        <li><a href="https://baliansprings.zenoti.com/webstore">Day passes</a></li>
+        <li><a href="https://shop.baliansprings.com/spaplus/?subject=Admission">Day passes</a></li>
         <li><a href="https://baliansprings.com/memberships/">Memberships</a></li>
         <li><a href="https://baliansprings.com/promotions/">Promotions</a></li>
         <li><a href="https://baliansprings.com/event/">Event spaces</a></li>
