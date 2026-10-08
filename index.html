@@ -231,6 +231,7 @@ figure{margin:0}
 .fares::after{bottom:0}
 .fare{position:relative;padding:22px 0 24px}
 .fare + .fare{padding-left:20px}
+.fare:first-child{padding-right:20px}
 .fare + .fare::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--hair);transform-origin:top}
 .fare h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
 .fare .price{display:block;margin:8px 0 6px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.02em}
@@ -308,6 +309,7 @@ figure{margin:0}
   .tlink{display:inline-flex}
   .sec h2{font-size:56px}
   .fare + .fare{padding-left:32px}
+  .fare:first-child{padding-right:32px}
   .fare .price{font-size:76px}
   .facts div{grid-template-columns:140px 1fr}
   .foot__intro{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}
