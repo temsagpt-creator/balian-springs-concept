@@ -117,6 +117,8 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   text-wrap: balance;
 }
 .display em { font-style: italic; color: var(--copper); }
+/* two-line heading: the italic accent always starts its own line */
+.display--split em { display: block; }
 
 .lead {
   font-size: clamp(16px, 1.25vw, 18px);
@@ -381,8 +383,8 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
 .intro__text { display: grid; gap: 26px; align-content: start; }
 .intro__text p:not(.eyebrow):not(.lead) { color: var(--text-soft); max-width: 34em; }
 .intro__media { position: relative; }
-.intro__media img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-@media (min-width: 960px) { .intro__media img { aspect-ratio: 4 / 5; } }
+.intro__photo { position: relative; overflow: hidden; background: var(--linen); }
+.intro__photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .intro__media figcaption {
   margin-top: 14px;
   font-size: 13px;
@@ -391,33 +393,14 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   color: var(--text-soft);
 }
 
-.quote {
-  margin-top: 10px;
-  padding-top: 30px;
-  border-top: 1px solid var(--line);
-}
-.quote p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1.3;
-  color: var(--teal);
-  max-width: 22em;
-}
-.quote cite {
-  display: block;
-  margin-top: 16px;
-  font-style: normal;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--copper);
-}
-
+/* the text column is wide enough for each heading line ("Wellness comes first here." and the
+   italic "From me time to we time") to sit on one line from 960px up; the photo fills the
+   row so it starts and ends level with the text */
 @media (min-width: 960px) {
-  .intro__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(48px, 7vw, 112px); }
+  .intro__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 3fr); gap: clamp(48px, 5vw, 80px); align-items: stretch; }
+  .intro__media { display: flex; flex-direction: column; }
+  .intro__photo { flex: 1 1 auto; min-height: 320px; }
+  .intro__photo img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
 }
 
 /* ---------- Modalities ---------- */
@@ -468,9 +451,11 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
 @media (min-width: 640px) {
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+/* two wide columns at every size above phone: no row of three identical cards */
 @media (min-width: 1024px) {
   .modalities__head { grid-template-columns: minmax(0, 1fr) auto; }
-  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 72px 32px; }
+  .cards { gap: 72px clamp(32px, 4vw, 56px); }
+  .card__media img { aspect-ratio: 3 / 2; }
 }
 
 /* ---------- Saunas ---------- */
@@ -546,14 +531,17 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
 
 /* ---------- Floors ---------- */
 .floors { padding-block: var(--section); }
+/* floor by floor, stacked like a building directory: photo beside its list on tablet and desktop */
 .floors__grid {
   margin-top: clamp(44px, 5vw, 72px);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 56px 32px;
+  gap: 56px;
 }
 .floor { display: grid; gap: 20px; align-content: start; }
-.floor img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.floor__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--linen); }
+.floor__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.floor__text { display: grid; gap: 16px; align-content: start; }
 .floor__level {
   font-size: 13px;
   font-weight: 500;
@@ -575,13 +563,14 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   font-size: 15px;
   line-height: 1.5;
 }
-@media (min-width: 640px) and (max-width: 1023px) {
-  .floor { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 32px; row-gap: 14px; }
-  .floor img { grid-column: 1; grid-row: 1 / span 4; }
-  .floor > :not(img) { grid-column: 2; }
+@media (min-width: 640px) {
+  .floor { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 32px; align-items: stretch; }
+  /* the photo fills the row, so it always ends level with its list */
+  .floor__media { aspect-ratio: auto; min-height: 240px; }
 }
 @media (min-width: 1024px) {
-  .floors__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .floors__grid { gap: 48px; }
+  .floor { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(48px, 6vw, 96px); }
 }
 
 /* ---------- Feature splits (Lilikoi, Workshops) ---------- */
@@ -718,7 +707,7 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
 .review figcaption span:last-child { color: var(--text-soft); letter-spacing: 0.1em; }
 .reviews__source { margin-top: 22px; font-size: 13px; color: var(--text-soft); }
 @media (min-width: 900px) {
-  .reviews__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
 
 /* ---------- Admission ---------- */
