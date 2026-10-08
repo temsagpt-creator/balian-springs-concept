@@ -286,12 +286,14 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
   z-index: -1;
   /* photo scrim for legibility, not decoration */
   background:
-    linear-gradient(180deg, rgba(25, 38, 39, 0.5) 0%, rgba(25, 38, 39, 0) 24%),
-    linear-gradient(90deg, rgba(25, 38, 39, 0.55) 0%, rgba(25, 38, 39, 0.25) 45%, rgba(25, 38, 39, 0) 70%),
+    linear-gradient(180deg, rgba(25, 38, 39, 0.62) 0%, rgba(25, 38, 39, 0.18) 22%, rgba(25, 38, 39, 0) 34%),
+    linear-gradient(90deg, rgba(25, 38, 39, 0.6) 0%, rgba(25, 38, 39, 0.32) 45%, rgba(25, 38, 39, 0.08) 72%, rgba(25, 38, 39, 0) 88%),
     linear-gradient(0deg, rgba(25, 38, 39, 0.86) 0%, rgba(25, 38, 39, 0.55) 40%, rgba(25, 38, 39, 0) 72%);
 }
 .hero__content { padding-top: 160px; padding-bottom: 40px; }
-.hero__content .eyebrow { color: var(--cream); }
+.hero__content .eyebrow { color: var(--cream); text-shadow: 0 1px 14px rgba(25, 38, 39, 0.6); }
+/* the nav sits over the carved arch: a soft shadow keeps each label crisp on the stone */
+.site-header .nav a { text-shadow: 0 1px 12px rgba(25, 38, 39, 0.55); }
 .eyebrow__more { display: none; }
 @media (min-width: 560px) { .eyebrow__more { display: inline; } }
 .hero h1 {
