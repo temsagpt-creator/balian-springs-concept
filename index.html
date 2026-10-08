@@ -406,10 +406,10 @@ figure{margin:0}
   @keyframes kb-a{from{transform:scale(1.03) translate3d(0,0,0)}to{transform:scale(1.08) translate3d(-1.2%,-.8%,0)}}
   @keyframes kb-b{from{transform:scale(1.08) translate3d(1%,.4%,0)}to{transform:scale(1.03) translate3d(0,0,0)}}
   /* the page assembling itself, once per element, only as it arrives; nothing above the fold waits */
-  .js .rv,.js .rvt :is(.label,h2,.body,.more){opacity:0;transform:translate3d(0,16px,0);transition:opacity 850ms var(--out),transform 850ms var(--out)}
+  .js .rv,.js .rvt :is(.label,h2,.body,.more){opacity:0;transform:translate3d(0,24px,0);transition:opacity 1000ms var(--out),transform 1000ms var(--out)}
   .js .rv.in,.js .rvt.in :is(.label,h2,.body,.more){opacity:1;transform:none}
-  .js .rvt.in .label + h2,.js .rvt.in .body{transition-delay:80ms}
-  .js .rvt.in .more{transition-delay:160ms}
+  .js .rvt.in .label + h2,.js .rvt.in .body{transition-delay:100ms}
+  .js .rvt.in .more{transition-delay:200ms}
   /* photos: a soft wipe from the edge they bleed off, the image settling from 1.04 to 1 */
   .js .rvp{clip-path:inset(100% 0 0 0);transition:clip-path 1400ms var(--out)}
   .js .rvp--r{clip-path:inset(0 0 0 100%)}
@@ -707,7 +707,7 @@ figure{margin:0}
       entries.forEach(function (e) {
         if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); rv.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
     each(RV, function (el) { rv.observe(el); });
     /* an anchor jump or a fast scroll can skip past an element without it ever crossing into view:
        anything at or above the viewport is shown at once (classes only, once each; no per-tick motion) */
