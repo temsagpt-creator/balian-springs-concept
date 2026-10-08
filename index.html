@@ -192,12 +192,13 @@ figure{margin:0}
 .hero__media::before,.hero__media::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
 .hero__media::before{top:0;height:calc(var(--hdr) * 2);background:linear-gradient(to bottom,rgba(13,24,23,.84) 0,rgba(13,24,23,.78) 50%,rgba(13,24,23,0) 100%)}
 .hero__media::after{bottom:0;height:58%;background:linear-gradient(to bottom,rgba(13,24,23,0) 0%,rgba(13,24,23,.5) 28%,rgba(13,24,23,.72) 52%,rgba(13,24,23,.78) 100%)}
-.hero__panel{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 var(--m) 32px}
-.eyebrow{display:none}
-.hero__title{font-size:min(calc((100vw - 2 * var(--m)) / 6.15), 96px);line-height:1;letter-spacing:-.035em;padding-bottom:.08em;white-space:nowrap}
+.hero__panel{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 var(--m) 28px;text-align:center}
+.eyebrow{display:flex;flex-direction:column;align-items:center;margin:0 0 18px;font-size:16px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--paper);text-shadow:0 1px 12px rgba(13,24,23,.5)}
+.eyebrow::after{content:"";width:56px;height:1px;margin-top:16px;background:rgba(243,236,225,.7)}
+.hero__title{font-size:min(calc((100vw - 2 * var(--m)) / 6.5), 96px);line-height:1;letter-spacing:-.012em;padding-bottom:.08em;white-space:nowrap}
 .hero__title span{display:inline}
 .hero__lede{margin-top:8px;font-size:19px;line-height:1.4;text-shadow:0 1px 14px rgba(13,24,23,.55)}
-.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:22px}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 28px;margin-top:16px}
 .hero__actions .btn{width:100%}
 .tlink{display:inline-flex;align-items:center;min-height:48px;color:var(--paper);font-size:18px;font-weight:500;letter-spacing:.03em;text-decoration-thickness:1px;text-underline-offset:.32em}
 .tlink:hover{color:var(--paper);text-decoration-thickness:2px}
@@ -341,11 +342,14 @@ figure{margin:0}
   /* cover: the film edge to edge, the words bottom-left over six columns */
   .hero{min-height:640px}
   .hero__media img,.hero__media video{object-position:50% 22%}   /* finial and sky clear of the header; fountain kept */
-  .hero__panel{padding:0 var(--m) clamp(56px, 7vh, 88px);max-width:calc(50% + var(--m))}
-  .hero__title{font-size:clamp(64px, 6.5vw, 104px);line-height:.94;white-space:normal}
-  .hero__title span{display:block}
-  .hero__lede{margin-top:20px;font-size:20px}
-  .hero__actions{margin-top:32px}
+  .hero__panel{padding:0 var(--m) clamp(48px, 6vh, 80px)}
+  .hero__media::after{height:66%;background:linear-gradient(to bottom,rgba(13,24,23,0) 0%,rgba(13,24,23,.56) 26%,rgba(13,24,23,.74) 46%,rgba(13,24,23,.8) 100%)}   /* a touch deeper where the eyebrow sits */
+  .eyebrow{font-size:14px;letter-spacing:.26em;margin-bottom:22px}
+  .eyebrow::after{width:64px;margin-top:20px}
+  .hero__title{font-size:clamp(72px, 7.2vw, 116px);line-height:1;letter-spacing:-.012em;white-space:nowrap}
+  .hero__title span{display:inline}
+  .hero__lede{margin-top:14px;font-size:21px}
+  .hero__actions{margin-top:18px}
 
   /* I. the gate over cols 3 to 12 bleeding right; the title on cols 1 to 6, the words from col 8 */
   .sec--pools figure{grid-column:3 / 13;margin-right:calc(-1 * var(--m))}
@@ -395,7 +399,7 @@ figure{margin:0}
   .foot__legal{grid-column:1 / 13}
 }
 @media (min-width:1700px){
-  .hero__title{font-size:104px}
+  .hero__title{font-size:116px}
 }
 
 /* ---------- Motion: slow, eased, never on hover; off for reduced motion ---------- */
@@ -426,6 +430,13 @@ figure{margin:0}
   .js .rvc.in .facts div::before,.js .rvc.in .facts div:last-child::after{transform:none;transition-delay:320ms}
   .js .rvc .price{opacity:0;transform:translate3d(0,10px,0);transition:opacity 900ms var(--out),transform 900ms var(--out)}
   .js .rvc.in .price{opacity:1;transform:none;transition-delay:260ms}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero__panel > *{animation:hero-in 1200ms cubic-bezier(.16,1,.3,1) both}
+  .hero__panel > .hero__title{animation-delay:150ms}
+  .hero__panel > .hero__lede{animation-delay:300ms}
+  .hero__panel > .hero__actions{animation-delay:450ms}
+  @keyframes hero-in{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
 }
 @media (prefers-reduced-motion:reduce){
   .hero__media video{display:none}
@@ -472,7 +483,7 @@ figure{margin:0}
 
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero__panel">
-    <p class="eyebrow" aria-hidden="true">Day spa in Alexandria, Virginia</p>
+    <p class="eyebrow" aria-hidden="true">Alexandria, Virginia</p>
     <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span><span class="vh">, a day spa in Alexandria, Virginia</span></h1>
     <p class="hero__lede">Healing through water.</p>
     <div class="hero__actions">
