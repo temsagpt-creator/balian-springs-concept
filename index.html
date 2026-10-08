@@ -86,9 +86,9 @@ figure{margin:0}
 
 /* ---------- Header ---------- */
 .hdr{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--hdr);padding-inline:var(--m);background:var(--deep);color:var(--paper)}
-.mark{display:inline-flex;align-items:center;gap:12px;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none}
-.mark img{height:34px;width:auto}
-.mark span{display:none;font-family:var(--display);font-optical-sizing:auto;font-size:22px;letter-spacing:-.01em;line-height:1}
+.mark{display:inline-flex;align-items:center;gap:10px;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none}
+.mark img{height:32px;width:auto}
+.mark span{display:inline;font-family:var(--display);font-optical-sizing:auto;font-size:20px;letter-spacing:-.01em;line-height:1}
 .hdr__nav{display:none}
 .hdr__end{display:flex;align-items:center;gap:8px}
 .hdr__book--wide{display:none}
@@ -187,6 +187,7 @@ figure{margin:0}
 .foot a:hover{color:var(--paper);text-decoration-thickness:2px}
 .foot__intro{display:grid;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--hair-dark)}
 .foot__intro .mark img{height:40px}
+.mark--icon span{display:none}
 .foot__care{margin-top:18px;max-width:30rem;font-family:var(--display);font-optical-sizing:auto;font-size:26px;line-height:1.25;letter-spacing:-.01em}
 .club label{display:block;font-weight:500;letter-spacing:.02em}
 .club p{margin-top:4px;color:var(--soft-dark);max-width:30rem}
@@ -219,7 +220,8 @@ figure{margin:0}
 /* ---------- Tablet (768 to 1023): the phone layout, given room ---------- */
 @media (min-width:768px){
   body{font-size:18px}
-  .mark span{display:inline}
+  .mark span{font-size:23px}
+  .mark img{height:36px}
   .hdr__book--wide{display:inline-flex}
   .hdr__book--short{display:none}
   .hdr__end{gap:24px}
@@ -250,6 +252,9 @@ figure{margin:0}
   .hdr__nav a:hover{text-decoration:underline;text-underline-offset:.32em}
   .hdr__end{gap:clamp(28px, 2.6vw, 40px)}
   .menu-btn{display:none}
+  .hdr .mark{gap:14px}
+  .hdr .mark img{height:40px}
+  .hdr .mark span{font-size:26px}
 
   /* cover: a teal panel over five columns, the film over seven, bleeding right */
   .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-inline:var(--m);height:calc(100vh - var(--hdr));height:calc(100svh - var(--hdr));min-height:600px;max-height:1100px}
@@ -366,7 +371,7 @@ figure{margin:0}
 
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="menu__top">
-    <a class="mark" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt=""></a>
+    <a class="mark mark--icon" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt=""></a>
     <button class="menu__close" type="button">Close</button>
   </div>
   <ul>
@@ -410,11 +415,11 @@ figure{margin:0}
     <figure>
       <div class="ph kbw rvp rvp--r">
         <picture>
-          <source media="(max-width: 767px)" srcset="assets/img/v3-gate-phone.webp" width="800" height="1000">
-          <img class="kb kb--b" src="assets/img/v3-gate-1500.webp" srcset="assets/img/v3-gate-900.webp 900w, assets/img/v3-gate-1500.webp 1500w" sizes="(min-width: 1024px) 85vw, 100vw" width="1500" height="844" loading="lazy" alt="The carved Balinese gate and palms rising from the indoor hydrotherapy pool">
+          <source media="(max-width: 767px)" srcset="assets/img/v10-pool-phone.webp" width="800" height="1000">
+          <img class="kb kb--b" src="assets/img/v10-pool-1500.webp" srcset="assets/img/v10-pool-900.webp 900w, assets/img/v10-pool-1500.webp 1500w" sizes="(min-width: 1024px) 85vw, 100vw" width="1500" height="844" loading="lazy" alt="The indoor hydrotherapy pool among palms and tropical plants, the carved gate beyond">
         </picture>
       </div>
-      <figcaption class="cap rv">The carved gate over our indoor hydrotherapy pool.</figcaption>
+      <figcaption class="cap rv">Our indoor hydrotherapy pool, among the palms.</figcaption>
     </figure>
     <div class="txt sub rvt">
       <h2 class="d" id="pools-h">Renew your spirit</h2>
@@ -428,7 +433,7 @@ figure{margin:0}
   <section class="sec sec--saunas grid" id="saunas" aria-labelledby="saunas-h">
     <figure class="gal__tall">
       <div class="ph rvp rvp--l">
-        <img src="assets/img/v3-salt-800.webp" srcset="assets/img/v3-salt-600.webp 600w, assets/img/v3-salt-800.webp 800w" sizes="(min-width: 1024px) 50vw, 86vw" width="800" height="1000" loading="lazy" alt="Himalayan salt walls glowing amber in the salt sauna">
+        <img src="assets/img/v10-salt-800.webp" srcset="assets/img/v10-salt-600.webp 600w, assets/img/v10-salt-800.webp 800w" sizes="(min-width: 1024px) 50vw, 86vw" width="800" height="1000" loading="lazy" alt="Himalayan salt blocks glowing amber, close up">
       </div>
     </figure>
     <figure class="gal__wide">
@@ -452,7 +457,7 @@ figure{margin:0}
     </div>
     <figure>
       <div class="ph rvp">
-        <img src="assets/img/v9-lantern-800.webp" srcset="assets/img/v3-lantern-534.webp 534w, assets/img/v9-lantern-800.webp 800w" sizes="(min-width: 1024px) 30vw, 70vw" width="800" height="1215" loading="lazy" alt="The meditation room under draped silk and a glowing lantern">
+        <img src="assets/img/v10-medit-660.webp" width="660" height="1000" loading="lazy" alt="The meditation room, white drapes and floor cushions in soft daylight">
       </div>
     </figure>
   </section>
