@@ -163,6 +163,9 @@ figure{margin:0}
 .mark span{display:inline;font-family:var(--display);font-optical-sizing:auto;font-size:20px;letter-spacing:-.01em;line-height:1}
 .hdr__nav{display:none}
 .hdr__end{display:flex;align-items:center;gap:8px}
+.hdr__book{min-height:48px;padding:0 22px}
+.hdr__book .sm{display:none}
+@media (max-width:399px){ .hdr__book .lg{display:none} .hdr__book .sm{display:inline} }
 .menu-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:64px;padding:0 6px;margin-right:-6px;border:0;background:transparent;color:var(--paper);font:inherit;font-size:16px;font-weight:500;letter-spacing:.04em;cursor:pointer}
 .menu-btn:hover{text-decoration:underline;text-underline-offset:.28em}
 
@@ -196,7 +199,7 @@ figure{margin:0}
 .hero__lede{margin-top:8px;font-size:19px;line-height:1.4;text-shadow:0 1px 14px rgba(13,24,23,.55)}
 .hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:22px}
 .hero__actions .btn{width:100%}
-.tlink{display:none;align-items:center;min-height:44px;color:var(--paper);font-weight:500;letter-spacing:.02em}
+.tlink{display:inline-flex;align-items:center;min-height:48px;color:var(--paper);font-size:18px;font-weight:500;letter-spacing:.03em;text-decoration-thickness:1px;text-underline-offset:.32em}
 .tlink:hover{color:var(--paper);text-decoration-thickness:2px}
 
 /* ---------- Sections (phone first) ---------- */
@@ -307,7 +310,6 @@ figure{margin:0}
   .hero__lede{font-size:21px}
   .hero__actions{margin-top:28px}
   .hero__actions .btn{width:auto}
-  .tlink{display:inline-flex}
   .sec h2{font-size:56px}
   .fare + .fare{padding-left:32px}
   .fare:first-child{padding-right:32px}
@@ -443,7 +445,7 @@ figure{margin:0}
     <a href="#visit">Visit</a>
   </nav>
   <div class="hdr__end">
-    <a class="btn btn--line hdr__book" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
+    <a class="btn btn--light hdr__book" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Book your relaxation"><span class="lg">Book your relaxation</span><span class="sm" aria-hidden="true">Book</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -460,7 +462,7 @@ figure{margin:0}
     <li><a href="#lilikoi">Lilikoi</a></li>
     <li><a href="#visit">Visit</a></li>
   </ul>
-  <a class="btn btn--light" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
+  <a class="btn btn--light" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Book your relaxation</a>
   <div class="menu__facts">
     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
     <a href="tel:+17034369107">(703) 436-9107</a>
@@ -474,7 +476,6 @@ figure{margin:0}
     <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span><span class="vh">, a day spa in Alexandria, Virginia</span></h1>
     <p class="hero__lede">Healing through water.</p>
     <div class="hero__actions">
-      <a class="btn btn--light" href="https://shop.baliansprings.com/spaplus/?subject=Admission">Enter now</a>
       <a class="tlink" href="#visit">Plan your visit</a>
     </div>
   </div>
@@ -568,13 +569,13 @@ figure{margin:0}
           <h3>Weekdays</h3>
           <b class="price"><span>$</span>130</b>
           <p>Monday to Thursday</p>
-          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Purchase now: weekday admission, $130">Purchase now</a>
+          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Enter now: weekday admission, $130">Enter now</a>
         </li>
         <li class="fare">
           <h3>Weekends</h3>
           <b class="price"><span>$</span>165</b>
           <p>Friday to Sunday and holidays</p>
-          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Purchase now: weekend admission, $165">Purchase now</a>
+          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Enter now: weekend admission, $165">Enter now</a>
         </li>
       </ul>
       <p class="incl">Unlimited access to our hydrotherapy pools, saunas and lounges.</p>
