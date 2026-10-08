@@ -3,11 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Balian Springs, Alexandria</title>
+<title>Day Spa in Alexandria, VA | Balian Springs</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Balian Springs, a daily membership-based spa and wellness club in Alexandria, Virginia. Homepage concept.">
+<meta name="description" content="Balian Springs is a day spa and wellness club in Alexandria, Virginia: hydrotherapy pools, eight themed saunas, lounges and Lilikoi Day Spa. Open daily, 9:00 am to 9:30 pm.">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="assets/img/balian-icon.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DaySpa",
+ "name": "Balian Springs",
+ "description": "A daily membership-based spa and wellness club in Alexandria, Virginia, with hydrotherapy pools, eight themed saunas, therapeutic lounges and Lilikoi Day Spa.",
+ "url": "https://baliansprings.com/",
+ "image": "https://temsagpt-creator.github.io/balian-springs-concept/assets/img/v7-dusk-poster-1440.webp",
+ "logo": "https://temsagpt-creator.github.io/balian-springs-concept/assets/img/balian-icon.png",
+ "telephone": "+1-703-436-9107",
+ "email": "hello@baliansprings.com",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "6432 General Green Way",
+  "addressLocality": "Alexandria",
+  "addressRegion": "VA",
+  "postalCode": "22312",
+  "addressCountry": "US"
+ },
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 38.7960636,
+  "longitude": -77.1602897
+ },
+ "hasMap": "https://www.google.com/maps/dir/?api=1&destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312",
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+   ],
+   "opens": "09:00",
+   "closes": "21:30"
+  }
+ ],
+ "priceRange": "$130 to $165",
+ "makesOffer": [
+  {
+   "@type": "Offer",
+   "name": "Weekday admission (Monday to Thursday)",
+   "price": "130.00",
+   "priceCurrency": "USD",
+   "url": "https://shop.baliansprings.com/spaplus/?subject=Admission"
+  },
+  {
+   "@type": "Offer",
+   "name": "Weekend and holiday admission (Friday to Sunday and holidays)",
+   "price": "165.00",
+   "priceCurrency": "USD",
+   "url": "https://shop.baliansprings.com/spaplus/?subject=Admission"
+  }
+ ],
+ "areaServed": [
+  "Northern Virginia",
+  "Washington, DC"
+ ],
+ "sameAs": [
+  "https://www.instagram.com/baliansprings/",
+  "https://www.facebook.com/BalianSprings/",
+  "https://www.tiktok.com/@baliansprings"
+ ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Hanken+Grotesk:wght@400;500&display=swap">
@@ -65,6 +134,7 @@ figure{margin:0}
 .ph > picture{display:block}
 .cap{margin-top:14px;font-size:16px;line-height:1.5;color:var(--soft);letter-spacing:.01em}
 .skip{position:absolute;left:-9999px}
+.vh{position:absolute !important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip:focus{left:var(--m);top:8px;background:var(--paper);color:var(--ink);padding:10px 14px;z-index:30}
 
 /* type: one display face, one size per level */
@@ -165,7 +235,10 @@ figure{margin:0}
 .fare h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
 .fare .price{display:block;margin:8px 0 6px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.02em}
 .fare .price span{font-size:.5em;vertical-align:.62em;margin-right:.06em;letter-spacing:0}
+.fare{display:flex;flex-direction:column}
 .fare p{font-size:16px;line-height:1.45}
+.fare p{margin-bottom:18px}
+.fare__buy{margin-top:auto;padding:0 12px;width:100%;min-height:48px}
 .incl{margin-top:20px}
 .facts{margin:36px 0 0;padding:0}
 .facts div{position:relative;display:grid;grid-template-columns:96px 1fr;gap:12px;padding:14px 0}
@@ -176,7 +249,8 @@ figure{margin:0}
 .facts dd{margin:0}
 .facts dd a{display:block;min-height:44px;padding:8px 0;margin:-8px 0}
 .facts dd a + a{margin-top:0}
-.visit__cta{margin-top:36px}
+.welcome{margin-top:24px}
+.visit__cta{margin-top:28px}
 
 /* the closing photograph, edge to edge, its caption on the margin */
 .ending .cap{padding:0 var(--m) 32px}
@@ -383,7 +457,7 @@ figure{margin:0}
   </ul>
   <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
   <div class="menu__facts">
-    <a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
     <a href="tel:+17034369107">(703) 436-9107</a>
     <p>Open Monday to Sunday, 9:00 am to 9:30 pm</p>
   </div>
@@ -391,8 +465,8 @@ figure{margin:0}
 
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero__panel">
-    <p class="eyebrow">Alexandria, Virginia</p>
-    <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span></h1>
+    <p class="eyebrow" aria-hidden="true">Day spa in Alexandria, Virginia</p>
+    <h1 class="hero__title d" id="hero-h"><span>Balian</span> <span>Springs</span><span class="vh">, a day spa in Alexandria, Virginia</span></h1>
     <p class="hero__lede">Healing through water.</p>
     <div class="hero__actions">
       <a class="btn btn--light" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
@@ -489,19 +563,22 @@ figure{margin:0}
           <h3>Weekdays</h3>
           <b class="price"><span>$</span>130</b>
           <p>Monday to Thursday</p>
+          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Purchase now: weekday admission, $130">Purchase now</a>
         </li>
         <li class="fare">
           <h3>Weekends</h3>
           <b class="price"><span>$</span>165</b>
           <p>Friday to Sunday and holidays</p>
+          <a class="btn fare__buy" href="https://shop.baliansprings.com/spaplus/?subject=Admission" aria-label="Purchase now: weekend admission, $165">Purchase now</a>
         </li>
       </ul>
       <p class="incl">Unlimited access to our hydrotherapy pools, saunas and lounges.</p>
       <dl class="facts">
         <div><dt>Hours</dt><dd>Monday to Sunday<br>9:00 am to 9:30 pm</dd></div>
-        <div><dt>Address</dt><dd><a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a></dd></div>
+        <div><dt>Directions</dt><dd><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a></dd></div>
         <div><dt>Contact</dt><dd><a href="tel:+17034369107">(703) 436-9107</a><a href="mailto:hello@baliansprings.com">hello@baliansprings.com</a></dd></div>
       </dl>
+      <p class="welcome">We welcome guests from across Northern Virginia and Washington, DC.</p>
       <a class="btn visit__cta" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
     </div>
   </section>
@@ -537,7 +614,7 @@ figure{margin:0}
     <div class="foot__visit">
       <h3>Visit</h3>
       <address>
-        <a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6432+General+Green+Way%2C+Alexandria%2C+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a><br>
         <a href="tel:+17034369107">(703) 436-9107</a><br>
         <a href="mailto:hello@baliansprings.com">hello@baliansprings.com</a>
       </address>
