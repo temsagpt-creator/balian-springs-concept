@@ -394,8 +394,8 @@ figure{margin:0}
       <img src="assets/img/v7-dusk-poster-1440.webp" width="1440" height="1440" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
     </picture>
     <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-      data-phone-mp4="assets/img/v7-dusk-loop-900.mp4" data-phone-webm="assets/img/v7-dusk-loop-900.webm"
-      data-wide-mp4="assets/img/v7-dusk-loop-1200.mp4" data-wide-webm="assets/img/v7-dusk-loop-1200.webm"></video>
+      data-phone-mp4="assets/img/v9-film-720.mp4" data-phone-webm="assets/img/v9-film-720.webm"
+      data-wide-mp4="assets/img/v9-film-1200.mp4" data-wide-webm="assets/img/v9-film-1200.webm"></video>
   </figure>
 </section>
 
@@ -446,7 +446,7 @@ figure{margin:0}
     </div>
     <figure>
       <div class="ph rvp">
-        <img src="assets/img/v3-lantern-534.webp" width="534" height="810" loading="lazy" alt="The meditation room under draped silk and a glowing lantern">
+        <img src="assets/img/v9-lantern-800.webp" srcset="assets/img/v3-lantern-534.webp 534w, assets/img/v9-lantern-800.webp 800w" sizes="(min-width: 1024px) 30vw, 70vw" width="800" height="1215" loading="lazy" alt="The meditation room under draped silk and a glowing lantern">
       </div>
     </figure>
   </section>
@@ -575,7 +575,7 @@ figure{margin:0}
   <div class="foot__legal rv">
     <a href="https://baliansprings.com/terms">Terms and Conditions</a>
     <a href="https://baliansprings.com/policies/">Policies</a>
-    <p class="fine">A homepage concept for Balian Springs. Photography and wording from baliansprings.com. Header motion made from a Balian Springs photograph.</p>
+    <p class="fine">A homepage concept for Balian Springs. Photography and wording from baliansprings.com; some images enhanced and animated from their originals.</p>
   </div>
 </footer>
 
@@ -641,7 +641,8 @@ figure{margin:0}
   });
   each('.kbw', function (el) { kb.observe(el); });
 
-  /* the cover film: their dusk pavilion photograph, gently in motion. It loads after the page has finished,
+  /* the cover film: four of their own photographs (the rooftop pavilion, the carved gate over the pool,
+     the salt sauna, the meditation room), each gently in motion, crossfading in a 14.4 s loop. It loads after the page has finished,
      starts muted and inline, fades in over the same still, pauses off screen, and is skipped for reduced motion
      (returned above), save-data and 2G. */
   var c = navigator.connection || {};
