@@ -88,7 +88,7 @@
   setTimeout(function () { if (!window.__calm) document.documentElement.classList.remove('js'); }, 4000);
 </script>
 <style>
-/* Balian Springs homepage concept v6, direction A: editorial calm on a 12-column grid.
+/* Balian Springs homepage concept v11, direction A: editorial calm on a 12-column grid.
    One display face (Bodoni Moda, optical sizes) and one quiet text face (Hanken Grotesk).
    Deep teal night for the header, the cover panel, the sauna room and the footer; warm limestone paper; a stone band.
    Balian's own teal for links and buttons on paper. Motion: the cover film, a slow drift on two photographs,
@@ -157,7 +157,7 @@ figure{margin:0}
 .wrap{padding-inline:var(--m)}
 
 /* ---------- Header ---------- */
-.hdr{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--hdr);padding-inline:var(--m);background:var(--deep);color:var(--paper)}
+.hdr{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--hdr);padding-inline:var(--m);background:transparent;color:var(--paper)}
 .mark{display:inline-flex;align-items:center;gap:10px;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none}
 .mark img{height:32px;width:auto}
 .mark span{display:inline;font-family:var(--display);font-optical-sizing:auto;font-size:20px;letter-spacing:-.01em;line-height:1}
@@ -180,16 +180,20 @@ figure{margin:0}
 .menu__facts p{color:var(--paper)}
 
 /* ---------- Cover (phone first): the film, then the name, one line, one button ---------- */
-.hero{display:flex;flex-direction:column;background:var(--deep);color:var(--paper)}
-.hero__media{position:relative;order:-1;height:56vh;height:56svh;min-height:300px;overflow:hidden;background:#26393A}
-.hero__media img,.hero__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;max-height:1200px;background:var(--deep);color:var(--paper);overflow:hidden}
+.hero__media{position:absolute;inset:0;margin:0;background:#26393A}
+.hero__media img,.hero__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .hero__media video{opacity:0;transition:opacity 1400ms ease-in-out}
 .hero__media video.is-on{opacity:1}
-.hero__panel{padding:26px var(--m) 30px}
-.eyebrow{display:none;margin:0 0 20px;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--soft-dark)}
+/* soft scrims: a light veil under the header, a deeper one where the words sit */
+.hero__media::before,.hero__media::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.hero__media::before{top:0;height:calc(var(--hdr) * 2);background:linear-gradient(to bottom,rgba(13,24,23,.84) 0,rgba(13,24,23,.78) 50%,rgba(13,24,23,0) 100%)}
+.hero__media::after{bottom:0;height:58%;background:linear-gradient(to bottom,rgba(13,24,23,0) 0%,rgba(13,24,23,.5) 28%,rgba(13,24,23,.72) 52%,rgba(13,24,23,.78) 100%)}
+.hero__panel{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 var(--m) 32px}
+.eyebrow{display:none}
 .hero__title{font-size:min(calc((100vw - 2 * var(--m)) / 6.15), 96px);line-height:1;letter-spacing:-.035em;padding-bottom:.08em;white-space:nowrap}
 .hero__title span{display:inline}
-.hero__lede{margin-top:10px;font-size:19px;line-height:1.4}
+.hero__lede{margin-top:8px;font-size:19px;line-height:1.4;text-shadow:0 1px 14px rgba(13,24,23,.55)}
 .hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:22px}
 .hero__actions .btn{width:100%}
 .tlink{display:none;align-items:center;min-height:44px;color:var(--paper);font-weight:500;letter-spacing:.02em}
@@ -299,9 +303,7 @@ figure{margin:0}
   .mark span{display:inline;font-size:23px}
   .mark img{height:36px}
   .hdr__end{gap:24px}
-  .hero__media{height:56vh;height:56svh}
-  .hero__panel{padding:40px var(--m) 48px}
-  .eyebrow{display:block}
+  .hero__panel{padding:0 var(--m) 56px}
   .hero__lede{font-size:21px}
   .hero__actions{margin-top:28px}
   .hero__actions .btn{width:auto}
@@ -322,7 +324,10 @@ figure{margin:0}
   .sub{display:grid;grid-template-columns:subgrid}
 
   /* header: mark and name, the five rooms, the booking */
-  .hdr__nav{display:flex;gap:clamp(28px, 2.6vw, 40px);margin-left:auto}
+  .hdr{display:grid;grid-template-columns:1fr auto 1fr}
+  .hdr__nav{display:flex;gap:clamp(24px, 2.4vw, 36px);order:1;justify-self:start;margin-left:-6px}
+  .hdr .mark{order:2;justify-self:center}
+  .hdr__end{order:3;justify-self:end}
   .hdr__nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;color:var(--paper);text-decoration:none;font-size:15px;letter-spacing:.04em}
   .hdr__nav a:hover{text-decoration:underline;text-underline-offset:.32em}
   .hdr__end{gap:clamp(28px, 2.6vw, 40px)}
@@ -331,14 +336,14 @@ figure{margin:0}
   .hdr .mark img{height:40px}
   .hdr .mark span{font-size:26px}
 
-  /* cover: a teal panel over five columns, the film over seven, bleeding right */
-  .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-inline:var(--m);height:calc(100vh - var(--hdr));height:calc(100svh - var(--hdr));min-height:600px;max-height:1100px}
-  .hero__panel{grid-column:1 / 6;display:flex;flex-direction:column;justify-content:center;padding:48px 0 88px}  /* a slight optical lift */
-  .hero__media{grid-column:6 / 13;order:0;height:auto;min-height:0;margin-left:calc(-.5 * var(--g));margin-right:calc(-1 * var(--m))}
+  /* cover: the film edge to edge, the words bottom-left over six columns */
+  .hero{min-height:640px}
+  .hero__media img,.hero__media video{object-position:50% 22%}   /* finial and sky clear of the header; fountain kept */
+  .hero__panel{padding:0 var(--m) clamp(56px, 7vh, 88px);max-width:calc(50% + var(--m))}
   .hero__title{font-size:clamp(64px, 6.5vw, 104px);line-height:.94;white-space:normal}
   .hero__title span{display:block}
-  .hero__lede{margin-top:22px;font-size:20px}
-  .hero__actions{margin-top:36px}
+  .hero__lede{margin-top:20px;font-size:20px}
+  .hero__actions{margin-top:32px}
 
   /* I. the gate over cols 3 to 12 bleeding right; the title on cols 1 to 6, the words from col 8 */
   .sec--pools figure{grid-column:3 / 13;margin-right:calc(-1 * var(--m))}
