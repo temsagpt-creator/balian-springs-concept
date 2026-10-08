@@ -6,156 +6,188 @@
 <title>Balian Springs, Alexandria</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Balian Springs, a daily membership-based spa and wellness club in Alexandria, Virginia. Homepage concept.">
-<meta name="theme-color" content="#F3ECE1">
+<meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="assets/img/balian-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Hanken+Grotesk:wght@400;500&display=swap">
-<link rel="preload" as="image" href="assets/img/pavilion-dusk-phone.webp" media="(max-width: 699px)">
-<link rel="preload" as="image" href="assets/img/pavilion-dusk-1600.webp" media="(min-width: 700px)">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Hanken+Grotesk:wght@400;500&display=swap">
+<link rel="preload" as="image" href="assets/img/v3-dusk-phone.webp" media="(max-width: 699px)">
+<link rel="preload" as="image" href="assets/img/v3-dusk-1600.webp" media="(min-width: 700px)">
 <style>
-/* Balian Springs homepage concept v2, direction A: editorial calm.
-   One display face (Bodoni Moda) set large, one quiet text face (Hanken Grotesk),
-   warm limestone paper, deep teal ink, Balian's own teal as the only accent. */
+/* Balian Springs homepage concept v3, direction A: editorial calm.
+   One display face (Bodoni Moda, optical sizes) and one quiet text face (Hanken Grotesk).
+   Deep teal night for the cover and the sauna room, warm limestone paper, a stone band; Balian's own teal for links and the visit button. */
 :root{
   --paper:#F3ECE1;      /* warm limestone, never pure white */
-  --ink:#1E302F;        /* deep teal ink, all body text */
-  --teal:#3E5C5B;       /* Balian's own brand teal: button and links only */
-  --stone:#E3D8C7;      /* photo placeholder while an image loads */
-  --rule:#CBBDA7;
+  --stone:#E9DFCF;      /* the visit band */
+  --ink:#1E302F;        /* deep teal ink: all text on paper and stone */
+  --deep:#1B2E2D;       /* the one dark room: text on it is paper */
+  --teal:#3E5C5B;       /* Balian's own brand teal: button and links */
+  --hair:#C9B9A1;       /* hairline rules, never text */
+  --hair-dark:#4C6261;
+  --wait:#E3D8C7;       /* photo frame colour while an image loads */
   --m:clamp(24px, 5vw, 96px);
-  --measure:36rem;
+  --measure:34rem;
   --display:"Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
   --text:"Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:18px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 p{margin:0}
-a{color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.24em}
+h1,h2,h3{font-weight:400}
+a{color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em}
 a:hover{color:var(--ink)}
-a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
-.wrap{padding-inline:var(--m)}
+a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+figure{margin:0;background:var(--wait)}
+figure img{width:100%}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:var(--m);top:8px;background:var(--paper);padding:10px 14px;z-index:5}
 
-/* ---------- Cover: logo, masthead, one line, one button, one photo ---------- */
-.cover{display:flex;flex-direction:column;min-height:100vh;min-height:100svh}
-.cover__top{display:flex;align-items:center;justify-content:space-between;padding-top:16px}
+/* display type: Bodoni Moda at its large optical size, set tight */
+.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.028em;line-height:1.02;margin:0;text-wrap:balance}
+
+/* ---------- Cover: icon, name, one line, one button, one photo ---------- */
+.cover{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;background:var(--deep);color:var(--paper)}
+.cover .btn{background:var(--paper);color:var(--ink)}
+.cover .btn:hover{background:var(--stone);color:var(--ink)}
+.cover a:focus-visible{outline-color:var(--paper)}
+.cover__top{display:flex;align-items:center;justify-content:space-between;padding:16px var(--m) 0}
 .brand{display:inline-flex;align-items:center;min-height:48px;min-width:44px;text-decoration:none}
 .brand img{height:40px;width:auto}
 .nav{display:none}
-.mast{
-  margin:12px 0 0;font-family:var(--display);font-weight:400;font-optical-sizing:auto;
-  font-size:calc((100vw - 2 * var(--m)) / 6.10);
-  line-height:1;letter-spacing:-.035em;white-space:nowrap;overflow-x:clip;padding-bottom:.12em
-}
-.deck{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding-top:12px;padding-bottom:24px}
+.cover__words{padding:0 var(--m)}
+.mast{margin:14px 0 0;font-size:calc((100vw - 2 * var(--m)) / 6.10);line-height:1;letter-spacing:-.035em;white-space:nowrap;overflow-x:clip;padding-bottom:.12em}
+.deck{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding:6px 0 28px}
 .lede{font-size:19px;line-height:1.4}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:var(--teal);color:var(--paper);font-family:var(--text);font-size:17px;font-weight:500;letter-spacing:.01em;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--teal);color:var(--paper);font-size:16px;font-weight:500;letter-spacing:.04em;text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--paper)}
-.cover__photo{position:relative;flex:1 1 auto;min-height:300px;margin:0;background:var(--stone)}
+.cover__photo{position:relative;flex:1 1 auto;min-height:320px;background:#26393A}
 .cover__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 
-/* ---------- Sections ---------- */
-.sec{padding-top:104px}
-.sec h2{margin:0;font-family:var(--display);font-weight:400;font-optical-sizing:auto;font-size:38px;line-height:1.08;letter-spacing:-.025em}
-.sec p{max-width:var(--measure)}
-.sec figure{margin:0;background:var(--stone)}
-.sec figure img{width:100%}
-.txt{padding-inline:var(--m);padding-top:28px}
-.txt h2{margin-bottom:16px}
-.more{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-weight:500}
+/* ---------- Sections (phone first) ---------- */
+.sec{margin-top:128px}
+.sec h2{font-size:44px}
+.body{max-width:var(--measure);margin-top:18px}
+.more{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:500;letter-spacing:.02em}
+.txt{padding:0 var(--m)}
 
-/* pools: photo full-bleed, text under it */
-/* saunas: photo inset on the left margin, bleeding off the right edge */
-.sec--saunas figure{margin-left:var(--m)}
-/* lounges: words first, then the photo */
-.sec--lounges .txt{padding-top:0;padding-bottom:32px}
-/* lilikoi: photo inset on both margins */
-.sec--lilikoi figure{margin-inline:var(--m)}
-/* visit */
-.prices{margin:4px 0 18px;padding:0;list-style:none}
-.prices li{display:flex;align-items:baseline;gap:16px;padding:10px 0;border-top:1px solid var(--rule)}
-.prices li:last-child{border-bottom:1px solid var(--rule)}
-.prices b{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-.02em;min-width:3.3ch}
+/* I. water: the carved gate, edge to edge */
+.sec--pools .txt{padding-top:36px}
+
+/* II. heat: the one dark room */
+.sec--saunas{background:var(--deep);color:var(--paper);padding:96px var(--m) 104px}
+.sec--saunas a{color:var(--paper)}
+.sec--saunas a:hover{color:#FFFFFF}
+.sec--saunas figure{background:#2A403E}
+.sec--saunas .txt{padding:40px 0 0}
+.sec--saunas + .sec{margin-top:120px}
+
+/* III. stillness: words first, the lantern room set in from the left */
+.sec--lounges figure{margin:40px var(--m) 0 calc(var(--m) + 18%)}
+
+/* IV. Lilikoi: edge to edge again */
+.sec--lilikoi .txt{padding-top:36px}
+
+/* V. visit: a stone band, a printed fare card */
+.sec--visit{background:var(--stone);padding:88px var(--m) 96px}
+.sec--visit h2{font-size:40px}
+.label{display:flex;align-items:center;gap:16px;margin:0 0 28px;font-size:16px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.label::after{content:"";flex:1 1 auto;height:1px;background:var(--hair)}
+.fares{display:grid;grid-template-columns:1fr 1fr;margin:36px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.fare{padding:22px 0 24px}
+.fare + .fare{padding-left:20px;border-left:1px solid var(--hair)}
+.fare h3{margin:0;font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
+.fare .price{display:block;margin:8px 0 6px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.02em}
+.fare .price span{font-size:.5em;vertical-align:.62em;margin-right:.06em;letter-spacing:0}
+.fare p{font-size:16px;line-height:1.45}
+.incl{margin-top:20px}
+.facts{margin:40px 0 0;padding:0}
+.facts div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--hair)}
+.facts div:last-child{border-bottom:1px solid var(--hair)}
+.facts dt{font-weight:500}
+.facts dd{margin:0}
+.facts dd a{display:block;min-height:44px;padding:8px 0;margin:-8px 0}
+.facts dd a + a{margin-top:0}
+.visit__cta{margin-top:40px}
+.ending{margin-top:0}
 
 /* ---------- Footer ---------- */
-.foot{margin-top:120px;padding-top:40px;padding-bottom:40px;border-top:1px solid var(--rule)}
-.foot .brand img{height:40px}
-.foot__about{margin-top:14px;max-width:var(--measure)}
-.foot__cols{display:grid;gap:28px;margin-top:36px}
-.foot h3{margin:0 0 6px;font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
-.foot address{font-style:normal}
-.foot address a{display:inline-block;padding:10px 0;min-height:44px}
-.foot a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
-.foot ul{margin:0;padding:0;list-style:none}
-.fine{margin-top:40px;font-size:14px;line-height:1.5}
+.foot{padding:56px var(--m) 40px}
+.foot__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.foot ul{display:flex;flex-wrap:wrap;gap:0 28px;margin:0;padding:0;list-style:none}
+.foot ul a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.foot__care{margin-top:20px;max-width:var(--measure)}
+.fine{margin-top:32px;font-size:14px;line-height:1.5}
 
 /* ---------- Tablet ---------- */
 @media (min-width:700px){
+  body{font-size:18px}
   .nav{display:flex;gap:22px;margin-right:-4px}
-  .nav a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:0 4px;color:var(--ink);text-decoration:none;font-size:16px;letter-spacing:.01em}
-  .nav a:hover{color:var(--teal);text-decoration:underline}
+  .nav a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:0 4px;color:var(--paper);text-decoration:none;font-size:16px;letter-spacing:.02em}
+  .nav a:hover{color:var(--paper);text-decoration:underline}
   .cover__top{padding-top:20px}
-  .cover__photo{flex:1 0 auto;min-height:max(70vh, 420px)}
-  .cover__photo img{object-position:50% 34%}
-  .deck{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;padding-top:14px;padding-bottom:32px}
+  .deck{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;padding:8px 0 36px}
   .lede{font-size:21px}
-  .sec{padding-top:150px}
-  .sec h2{font-size:52px}
-  .txt{padding-top:36px}
-  .sec--pools figure{width:78%}
-  .sec--pools .txt{margin-left:22%;padding-left:0}
-  .sec--saunas figure{margin-left:var(--m)}
-  .sec--lounges .txt{margin-left:22%;padding-left:0}
-  .sec--lilikoi figure{width:62%;margin-left:auto;margin-right:var(--m)}
-  .sec--visit figure{width:62%}
-  .foot__cols{grid-template-columns:repeat(3,max-content);column-gap:40px}
+  .cover__photo{flex:1 0 auto;min-height:max(70vh, 440px)}
+  .cover__photo img{object-position:50% 40%}
+  .sec{margin-top:176px}
+  .sec h2{font-size:64px}
+  .sec--pools .txt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--measure));column-gap:48px;padding-top:56px}
+  .sec--pools .body{margin-top:12px}
+  .sec--saunas{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:56px;align-items:end;padding:128px var(--m)}
+  .sec--saunas .txt{padding:0}
+  .sec--saunas + .sec{margin-top:176px}
+  .sec--lounges{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;align-items:start;padding:0 var(--m)}
+  .sec--lounges .txt{padding:96px 0 0}
+  .sec--lounges figure{margin:0;max-width:534px;justify-self:end}
+  .sec--lilikoi .txt{padding-top:56px;max-width:calc(var(--measure) + 2 * var(--m));margin-left:auto}
+  .sec--visit{padding:128px var(--m) 136px}
+  .sec--visit h2{font-size:60px}
+  .fare + .fare{padding-left:32px}
+  .fare .price{font-size:76px}
+  .facts div{grid-template-columns:140px 1fr}
 }
 
 /* ---------- Desktop: editorial spreads ---------- */
 @media (min-width:1100px){
-  body{font-size:18px}
-  .sec{padding-top:200px}
-  .sec h2{font-size:clamp(52px, 4.4vw, 72px)}
-  .txt{padding:0}
-  /* pools: photo bleeds off the left edge, words in the right column: title at the top, body at the foot */
-  .sec--pools{display:grid;grid-template-columns:minmax(0,1fr) var(--measure);column-gap:clamp(64px, 7vw, 128px);padding-right:var(--m)}
-  .sec--pools figure{width:auto}
-  .sec--pools .txt{margin:0;align-self:start}
-  .sec--pools h2{margin-bottom:24px}
-  /* saunas: a wide band of salt light, title left and words right beneath it */
-  .sec--saunas{padding-inline:var(--m)}
-  .sec--saunas figure{margin:0}
-  .sec--saunas .txt{display:grid;grid-template-columns:minmax(0,1fr) var(--measure);column-gap:64px;padding-top:40px}
-  .sec--saunas h2{margin:0}
-  /* lounges: words set in from the left, the room runs edge to edge beneath */
-  .sec--lounges .txt{margin-left:calc(var(--m) + 34%);padding:0 var(--m) 48px 0}
-  /* lilikoi: words left, the room standing tall on the right */
-  .sec--lilikoi{display:grid;grid-template-columns:var(--measure) minmax(0,1fr);column-gap:clamp(64px, 8vw, 160px);align-items:center;padding-inline:var(--m)}
-  .sec--lilikoi figure{width:auto;max-width:600px;margin:0 0 0 auto;justify-self:end;grid-column:2;grid-row:1}
-  .sec--lilikoi .txt{grid-column:1;grid-row:1}
-  /* visit: the robe on the tile bleeds off the right edge, prices left */
-  .sec--visit{display:grid;grid-template-columns:var(--measure) minmax(0,1fr);column-gap:clamp(64px, 8vw, 160px);align-items:end;padding-left:var(--m)}
-  .sec--visit figure{width:auto;grid-column:2;grid-row:1}
-  .sec--visit .txt{grid-column:1;grid-row:1;padding-bottom:8px}
-  .foot{margin-top:200px;padding-top:56px}
-  .foot__about{max-width:none}
-  .foot__cols{margin-top:48px;column-gap:96px}
+  .sec{margin-top:220px}
+  .sec h2{font-size:clamp(64px, 5vw, 80px)}
+  /* I. the gate, edge to edge and tall; the title left, the words on the right at the title's top */
+  .sec--pools figure img{height:min(88vh, 56.25vw);object-fit:cover}
+  .sec--pools .txt{grid-template-columns:minmax(0,1fr) var(--measure);column-gap:clamp(64px, 8vw, 160px);padding-top:64px}
+  .sec--pools .body{margin-top:14px}
+  /* II. the dark room: a tall framed photo of the salt wall, words low on the right */
+  .sec--saunas{grid-template-columns:minmax(0,600px) var(--measure);justify-content:space-between;padding:160px var(--m) 160px calc(var(--m) + 4vw)}
+  .sec--saunas .txt{padding-bottom:8px}
+  .sec--saunas + .sec{margin-top:220px}
+  /* III. words high on the left, the lantern room standing right of centre */
+  .sec--lounges{grid-template-columns:var(--measure) minmax(0,1fr);column-gap:clamp(64px, 8vw, 160px);padding:0 var(--m) 0 calc(var(--m) + 8vw)}
+  .sec--lounges .txt{padding-top:140px}
+  .sec--lounges figure{justify-self:start;width:100%}
+  /* IV. Lilikoi: the room bleeds off the left edge, words low on the right */
+  .sec--lilikoi{display:grid;grid-template-columns:minmax(0,1fr) var(--measure);column-gap:clamp(64px, 8vw, 160px);align-items:end;padding-right:var(--m)}
+  .sec--lilikoi .txt{padding:0 0 8px;max-width:none;margin:0}
+  /* V. visit: title on the left, the fare card and the facts on the right */
+  .sec--visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,36rem);column-gap:clamp(64px, 8vw, 160px);align-items:start;padding:176px var(--m) 184px}
+  .visit__head{position:relative}
+  .fares{margin-top:0}
+  .sec--visit h2{font-size:clamp(64px, 5vw, 80px)}
+  .fare .price{font-size:88px}
+  .ending img{height:min(80vh, 42.86vw);object-fit:cover}
+  .foot{padding-top:64px}
 }
 @media (min-width:1700px){
   .mast{font-size:calc((1700px - 2 * var(--m)) / 6.10)}
 }
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="cover" id="top">
-  <div class="cover__top wrap">
+  <div class="cover__top">
     <a class="brand" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt="Balian Springs"></a>
     <nav class="nav" aria-label="Sections">
       <a href="#pools">Pools</a>
@@ -165,8 +197,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
       <a href="#visit">Visit</a>
     </nav>
   </div>
-  <div class="wrap">
-    <h1 class="mast">Balian Springs</h1>
+  <div class="cover__words">
+    <h1 class="mast d">Balian Springs</h1>
     <div class="deck">
       <p class="lede">Healing through water.</p>
       <a class="btn" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
@@ -174,8 +206,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
   </div>
   <figure class="cover__photo">
     <picture>
-      <source media="(max-width: 699px)" srcset="assets/img/pavilion-dusk-phone.webp">
-      <img src="assets/img/pavilion-dusk-1600.webp" srcset="assets/img/pavilion-dusk-1600.webp 1600w, assets/img/pavilion-dusk-2400.webp 2400w" sizes="100vw" width="1600" height="1200" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
+      <source media="(max-width: 699px)" srcset="assets/img/v3-dusk-phone.webp" width="900" height="1364">
+      <img src="assets/img/v3-dusk-1600.webp" srcset="assets/img/v3-dusk-1600.webp 1600w, assets/img/v3-dusk-2400.webp 2400w" sizes="100vw" width="1600" height="1200" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
     </picture>
   </figure>
 </header>
@@ -184,14 +216,14 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
   <section class="sec sec--pools" id="pools" aria-labelledby="pools-h">
     <figure>
       <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/indoor-pool-phone.webp">
-        <img src="assets/img/indoor-pool-wide-1500.webp" srcset="assets/img/indoor-pool-wide-900.webp 900w, assets/img/indoor-pool-wide-1500.webp 1500w" sizes="(min-width: 1100px) 50vw, 78vw" width="1500" height="1000" loading="lazy" alt="The indoor hydrotherapy pool beside the garden windows">
+        <source media="(max-width: 699px)" srcset="assets/img/v3-gate-phone.webp" width="800" height="1000">
+        <img src="assets/img/v3-gate-1500.webp" srcset="assets/img/v3-gate-900.webp 900w, assets/img/v3-gate-1500.webp 1500w" sizes="100vw" width="1500" height="844" loading="lazy" alt="The carved Balinese gate and palms rising from the indoor hydrotherapy pool">
       </picture>
     </figure>
     <div class="txt">
-      <h2 id="pools-h">Renew your spirit.</h2>
+      <h2 class="d" id="pools-h">Renew your spirit</h2>
       <div>
-        <p>Indoor and rooftop hydrotherapy pools, coed plunge pools and a Hinoki bath of Japanese cypress.</p>
+        <p class="body">Indoor and rooftop hydrotherapy pools, coed plunge pools and a Hinoki bath of Japanese cypress.</p>
         <a class="more" href="https://baliansprings.com/hydrotherapy-pools/">See the pools</a>
       </div>
     </div>
@@ -199,95 +231,86 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
 
   <section class="sec sec--saunas" id="saunas" aria-labelledby="saunas-h">
     <figure>
-      <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/salt-wall-phone.webp">
-        <img src="assets/img/salt-wall-wide-1500.webp" srcset="assets/img/salt-wall-wide-900.webp 900w, assets/img/salt-wall-wide-1500.webp 1500w" sizes="90vw" width="1500" height="656" loading="lazy" alt="Warm light through the Himalayan salt wall">
-      </picture>
+      <img src="assets/img/v3-salt-800.webp" srcset="assets/img/v3-salt-600.webp 600w, assets/img/v3-salt-800.webp 800w" sizes="(min-width: 1100px) 600px, (min-width: 700px) 42vw, 100vw" width="800" height="1000" loading="lazy" alt="Himalayan salt walls glowing amber in the salt sauna">
     </figure>
     <div class="txt">
-      <h2 id="saunas-h">Renew your body.</h2>
-      <div>
-        <p>Eight themed saunas, from Himalayan salt and Korean loess clay to gold, charcoal and far infrared.</p>
-        <a class="more" href="https://baliansprings.com/saunas/">See the saunas</a>
-      </div>
+      <h2 class="d" id="saunas-h">Renew your body</h2>
+      <p class="body">Eight themed saunas, from Himalayan salt and Korean loess clay to gold, charcoal and far infrared.</p>
+      <a class="more" href="https://baliansprings.com/saunas/">See the saunas</a>
     </div>
   </section>
 
   <section class="sec sec--lounges" id="lounges" aria-labelledby="lounges-h">
     <div class="txt">
-      <h2 id="lounges-h">Renew your mind.</h2>
-      <p>Therapeutic lounges designed to help you unwind, de-stress and find inner peace.</p>
+      <h2 class="d" id="lounges-h">Renew your mind</h2>
+      <p class="body">Therapeutic lounges designed to help you unwind, de-stress and find inner peace.</p>
       <a class="more" href="https://baliansprings.com/lounges/">See the lounges</a>
     </div>
     <figure>
-      <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/meditation-phone.webp">
-        <img src="assets/img/meditation-wide-1500.webp" srcset="assets/img/meditation-wide-900.webp 900w, assets/img/meditation-wide-1500.webp 1500w" sizes="100vw" width="1500" height="643" loading="lazy" alt="The meditation room, white drapes and floor cushions">
-      </picture>
+      <img src="assets/img/v3-lantern-534.webp" width="534" height="810" loading="lazy" alt="The meditation room under draped silk and a glowing lantern">
     </figure>
   </section>
 
   <section class="sec sec--lilikoi" id="lilikoi" aria-labelledby="lilikoi-h">
     <figure>
       <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/lilikoi-room-phone.webp">
-        <img src="assets/img/lilikoi-room-portrait-800.webp" srcset="assets/img/lilikoi-room-portrait-600.webp 600w, assets/img/lilikoi-room-portrait-800.webp 800w" sizes="(min-width: 1100px) 600px, 62vw" width="800" height="1000" loading="lazy" alt="A Lilikoi treatment room in daylight">
+        <source media="(max-width: 699px)" srcset="assets/img/v3-lilikoi-phone.webp" width="800" height="640">
+        <img src="assets/img/v3-lilikoi-1500.webp" srcset="assets/img/v3-lilikoi-900.webp 900w, assets/img/v3-lilikoi-1500.webp 1500w" sizes="(min-width: 1100px) 60vw, 100vw" width="1500" height="938" loading="lazy" alt="A Lilikoi treatment room with plants and a stone wall">
       </picture>
     </figure>
     <div class="txt">
-      <h2 id="lilikoi-h">Lilikoi Day Spa</h2>
-      <p>Rejuvenating facials, enhancing body treatments and relaxing therapies, with traditional and modern techniques.</p>
+      <h2 class="d" id="lilikoi-h">Lilikoi Day Spa</h2>
+      <p class="body">Rejuvenating facials, enhancing body treatments and relaxing therapies, with traditional and modern techniques.</p>
       <a class="more" href="https://baliansprings.zenoti.com/webstore">Book a treatment</a>
     </div>
   </section>
 
   <section class="sec sec--visit" id="visit" aria-labelledby="visit-h">
-    <figure>
-      <picture>
-        <source media="(max-width: 699px)" srcset="assets/img/robe-tile-phone.webp">
-        <img src="assets/img/robe-tile-sq-1100.webp" srcset="assets/img/robe-tile-sq-700.webp 700w, assets/img/robe-tile-sq-1100.webp 1100w" sizes="(min-width: 1100px) 50vw, 62vw" width="1100" height="1100" loading="lazy" alt="A guest in a robe stepping onto the blue pool tile">
-      </picture>
-    </figure>
-    <div class="txt">
-      <h2 id="visit-h">Become a member for the day.</h2>
-      <ul class="prices">
-        <li><b>$130</b><span>Monday to Thursday</span></li>
-        <li><b>$165</b><span>Friday to Sunday and holidays</span></li>
+    <div class="visit__head">
+      <p class="label">Daily admission</p>
+      <h2 class="d" id="visit-h">Become a member for the day</h2>
+    </div>
+    <div class="visit__card">
+      <ul class="fares">
+        <li class="fare">
+          <h3>Weekdays</h3>
+          <b class="price"><span>$</span>130</b>
+          <p>Monday to Thursday</p>
+        </li>
+        <li class="fare">
+          <h3>Weekends</h3>
+          <b class="price"><span>$</span>165</b>
+          <p>Friday to Sunday and holidays</p>
+        </li>
       </ul>
-      <p>Pools, saunas and lounges included. Open Monday to Sunday, 9:00 am to 9:30 pm.</p>
-      <a class="more" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
+      <p class="incl">Unlimited access to the hydrotherapy pools, saunas and lounges.</p>
+      <dl class="facts">
+        <div><dt>Hours</dt><dd>Monday to Sunday<br>9:00 am to 9:30 pm</dd></div>
+        <div><dt>Address</dt><dd><a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a></dd></div>
+        <div><dt>Contact</dt><dd><a href="tel:+17034369107">(703) 436-9107</a><a href="mailto:hello@baliansprings.com">hello@baliansprings.com</a></dd></div>
+      </dl>
+      <a class="btn visit__cta" href="https://baliansprings.zenoti.com/webstore">Book a day pass</a>
     </div>
   </section>
+
+  <figure class="ending">
+    <picture>
+      <source media="(max-width: 699px)" srcset="assets/img/v3-rooftop-phone.webp" width="900" height="1125">
+      <img src="assets/img/v3-rooftop-1600.webp" sizes="100vw" width="1600" height="686" loading="lazy" alt="Loungers along the lit bamboo wall of the rooftop at dusk">
+    </picture>
+  </figure>
 </main>
 
-<footer class="foot wrap">
-  <div class="foot__top">
-    <div>
-      <a class="brand" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt="Balian Springs"></a>
-      <p class="foot__about">A daily membership-based spa and wellness club, rooted in Collective Care&trade;.</p>
-    </div>
-    <div class="foot__cols">
-      <div>
-        <h3>Find us</h3>
-        <address><a href="https://maps.google.com/?q=6432+General+Green+Way,+Alexandria,+VA+22312">6432 General Green Way<br>Alexandria, VA 22312</a></address>
-      </div>
-      <div>
-        <h3>Talk to us</h3>
-        <ul>
-          <li><a href="tel:+17034369107">(703) 436-9107</a></li>
-          <li><a href="mailto:hello@baliansprings.com">hello@baliansprings.com</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Good to know</h3>
-        <ul>
-          <li><a href="https://baliansprings.com/terms">Terms and Conditions</a></li>
-          <li><a href="https://baliansprings.com/policies/">Policies</a></li>
-          <li><a href="https://baliansprings.com/faq/">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
+<footer class="foot">
+  <div class="foot__row">
+    <a class="brand" href="#top" aria-label="Balian Springs, back to top"><img src="assets/img/balian-icon.png" width="78" height="110" alt="Balian Springs"></a>
+    <ul>
+      <li><a href="https://baliansprings.com/terms">Terms and Conditions</a></li>
+      <li><a href="https://baliansprings.com/policies/">Policies</a></li>
+      <li><a href="https://baliansprings.com/faq/">FAQ</a></li>
+    </ul>
   </div>
+  <p class="foot__care">A daily membership-based spa and wellness club, rooted in Collective Care&trade;.</p>
   <p class="fine">A homepage concept for Balian Springs. Photography and wording from baliansprings.com.</p>
 </footer>
 </body>
