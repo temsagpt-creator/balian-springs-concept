@@ -1,0 +1,35 @@
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "@id": "https://baliansprings.com/#organization",
+ "name": "Balian Springs",
+ "url": "https://baliansprings.com/",
+ "logo": "https://temsagpt-creator.github.io/balian-springs-concept/assets/img/logo-colour.png",
+ "sameAs": [
+  "https://www.instagram.com/baliansprings/",
+  "https://www.facebook.com/BalianSprings/",
+  "https://www.tiktok.com/@baliansprings"
+ ],
+ "subjectOf": [
+  {
+   "@type": "NewsArticle",
+   "headline": "Breweries, farms, spas? To fill empty offices, downtowns get creative.",
+   "url": "https://www.washingtonpost.com/dc-md-va/2023/08/28/empty-office-buildings-commercial-vacancy-zoning/",
+   "datePublished": "2023-08-28",
+   "publisher": {
+    "@type": "Organization",
+    "name": "The Washington Post"
+   }
+  },
+  {
+   "@type": "VideoObject",
+   "name": "New wellness spa gaining attention in Alexandria",
+   "url": "https://www.fox5dc.com/video/1168352",
+   "uploadDate": "2023-01-18",
+   "publisher": {
+    "@type": "Organization",
+    "name": "FOX 5 DC"
+   }
+  }
+ ]
+}

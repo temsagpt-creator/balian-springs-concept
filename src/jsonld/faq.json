@@ -1,0 +1,272 @@
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://baliansprings.com/faq/#faq",
+ "url": "https://baliansprings.com/faq/",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the check-in process?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We ask every guest for a government ID and a phone number at check-in. Returning guests can use the express check-in kiosks: check in quickly with your phone number and receive a number for your locker key."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do I have to show my government ID?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We check your ID when you arrive and program your locker key, so you don’t need to carry your ID to buy alcoholic drinks inside the club."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a minimum age?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Guests must be at least 18 years old to enter."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are your hours?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The club is open 9:00 am to 9:30 pm, seven days a week. Lilikoi Day Spa is open 10:00 am to 9:00 pm. Holiday hours are on our Plan your visit page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long can I stay?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your day pass covers the club from opening to closing time. There is no re-entry once you leave."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What should I bring?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A physical photo ID, which you need to enter, and a conservative swimsuit for the pools. We provide a bag, robe, towel and slippers."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there anything I should know before I come?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Bags larger than 10 by 12 inches are not allowed inside, and all bags are subject to search on arrival. We cannot hold belongings that are not allowed in the club. You can read the rest in our guest policies."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there parking?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Our parking lot has over 500 free parking spaces."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much is a day pass?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A weekday day pass, Monday to Thursday except holidays, is $130 per person. On Fridays, Saturdays, Sundays and US holidays, it is $165 per person. Lilikoi treatments, food, drinks, retail, premium workshops and therapies are paid for à la carte. See day passes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does a day pass include?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your day pass covers the saunas, the indoor and outdoor hydrotherapy pools, the coed plunge pools, the steam rooms, the lounge areas, the Fitness Center, the Media Room, the Business Center, lockers, toiletries and most of our wellness workshops. Food, drinks, Lilikoi treatments and premium workshops are extra, and can be paid for as you leave. Some lounges and rooms depend on availability, based on reservations."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need to book or buy tickets before I visit?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Admission is on a walk-in basis, and no reservation is needed. If you would like a Lilikoi treatment, we recommend booking it before your visit. You can book Lilikoi online or call us at (703) 436-9107."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What forms of payment do you accept?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We accept cash, Visa, Mastercard, Discover, American Express and Apple Pay. We do not accept checks or money orders."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are all the areas coed?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Aqua Lounge and the locker rooms are separated. Please bring your swimsuit to enjoy our coed amenity spaces."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you rent swimsuits or towels?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We don’t rent swimsuits, but we give you a bag, robe, towel and slippers as you enter the locker rooms. Please return them at the end of your stay."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I go into the pools in my clothes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Conservative swimsuits are required in the pools, and other clothing is not allowed in the water. Other fabrics affect the clarity of the water and the filtration."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I wear my own shoes or slippers inside?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. We are a barefoot club, to keep it clean, so outside footwear is not permitted. We provide Balian Springs slippers if you would like them. Athletic shoes are required in the Fitness Center on the second floor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How deep are the pools?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most pools are 3 to 4 feet deep."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are the outdoor pools open in poor weather?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Our outdoor pools are open all year round. They close only when there is a safety hazard, such as thunderstorms and lightning."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are the pools heated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We adjust the pool temperatures to the temperature outside. The water is heated for most of the year, except in summer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a gym?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The Fitness Center on the second floor is included with your day pass. For your safety, athletic shoes are required there, and they may be worn only inside the Fitness Center."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I bring my laptop or other devices?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, you can bring personal electronics such as laptops and tablets, and free Wi-Fi is available. Balian Springs is not responsible for loss of or damage to your devices anywhere in the club."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I bring my own food or drinks?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Outside food and drinks are not allowed inside the club, and bags are subject to search."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can we bring a birthday cake?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not at this time. We do offer a celebration package you can buy when you arrive, for celebrations at the club."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you have options for special diets?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Our menus include vegan, vegetarian, dairy-free, gluten-free, nut-free and keto options."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you serve alcohol?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Alcoholic drinks are served at The Hideout on the rooftop, with a limit of 3 orders per guest and one drink per order. For non-alcoholic drinks, CBD drinks and mocktails, visit The Dry Well on the first floor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need a photo ID to order alcohol?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We check your ID when you arrive and program it into your locker key."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need to book treatments ahead?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We encourage booking for every treatment. Please arrive at the club 1 hour before your appointment, so there is time to check in and change into your robe and slippers."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does my treatment include admission to the club?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Admission is not included in any treatment, package or reservation. Please buy a day pass to enter the club for your treatment."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a cancellation fee?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cancellation fees apply only to Lilikoi Day Spa, as there are no reservations for the club itself. Cancelling or changing a treatment with less than 24 hours’ notice carries a 50% charge, and a missed appointment is charged in full. If you arrive late, your treatment runs for the time that remains in your booking."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you offer prenatal massage?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not at this time. Lilikoi Day Spa does not offer prenatal or oncology massage. Please call us at (703) 436-9107 if you have any questions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "The online store page is down. What can I do?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We’re sorry for the trouble. While the store page is down, you can place your order through our online order form."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "My card seems to have been charged more than once.",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "This can happen after an error while entering your payment details, such as the address or ZIP code. The extra charges are pending transactions and will not appear on your final bill. If you need it resolved right away, please call us at (703) 436-9107."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why haven’t I received my confirmation email?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Please check all your inboxes, including spam or junk, and check if your settings filter out unfamiliar senders. Gmail and Google Workspace users see this most often."
+   }
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "@context": "https://schema.org",
+ "@type": "DaySpa",
+ "name": "Balian Springs",
+ "description": "A self care social club in Alexandria, Virginia, with hydrotherapy pools, eight themed saunas, therapeutic lounges and Lilikoi Day Spa.",
+ "url": "https://baliansprings.com/",
+ "image": "https://temsagpt-creator.github.io/balian-springs-concept/assets/img/v7-dusk-poster-1440.webp",
+ "logo": "https://temsagpt-creator.github.io/balian-springs-concept/assets/img/logo-colour.png",
+ "telephone": "+1-703-436-9107",
+ "email": "hello@baliansprings.com",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "6432 General Green Way",
+  "addressLocality": "Alexandria",
+  "addressRegion": "VA",
+  "postalCode": "22312",
+  "addressCountry": "US"
+ },
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 38.7960636,
+  "longitude": -77.1602897
+ },
+ "hasMap": "https://www.google.com/maps?cid=13870935617735632115",
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+   ],
+   "opens": "09:00",
+   "closes": "21:30"
+  }
+ ],
+ "makesOffer": [
+  {
+   "@type": "Offer",
+   "name": "Weekday admission (Monday to Thursday)",
+   "price": "130.00",
+   "priceCurrency": "USD",
+   "url": "https://shop.baliansprings.com/spaplus/index.php?subject=Admission"
+  },
+  {
+   "@type": "Offer",
+   "name": "Weekend and holiday admission (Friday to Sunday and holidays)",
+   "price": "165.00",
+   "priceCurrency": "USD",
+   "url": "https://shop.baliansprings.com/spaplus/index.php?subject=Admission"
+  }
+ ],
+ "areaServed": [
+  "Alexandria, VA",
+  "Northern Virginia",
+  "Washington, DC"
+ ],
+ "sameAs": [
+  "https://www.instagram.com/baliansprings/",
+  "https://www.facebook.com/BalianSprings/",
+  "https://www.tiktok.com/@baliansprings"
+ ],
+ "@id": "https://baliansprings.com/#dayspa"
+}
