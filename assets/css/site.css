@@ -530,3 +530,201 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 
 /* a row of two cards keeps two columns on desktop instead of leaving a third empty */
 @media (min-width:1024px){ .cards--2{grid-template-columns:repeat(2,minmax(0,1fr))} .cards--2 .ph img{aspect-ratio:3 / 2} }
+
+/* ======================================================================================================
+   Compact pass (Oct 22, Julien's rule: use space efficiently, grids instead of tall stacks, no long scrolling).
+   Tighter rhythm, shorter photographs, lists laid out in columns, a lighter footer. Phone stays one column.
+   ====================================================================================================== */
+:root{ --sp:72px; }
+@media (min-width:768px){ :root{ --sp:88px; } }
+@media (min-width:1024px){ :root{ --sp:clamp(88px, 7vw, 112px); } }
+
+/* home: the photographs keep their drama at a gentler height */
+@media (min-width:1024px){
+  .sec--pools .ph img{height:min(62vh, 36vw)}
+  .sec--pools .txt{padding-top:32px}
+  .sec--saunas .txt{padding-top:32px}
+  .gal__wide{margin-top:clamp(48px, 5vw, 80px)}
+  .sec--lounges figure{margin-top:calc(-.4 * var(--sp))}
+  .sec--lounges figure .ph img{max-height:62vh;object-fit:cover}
+  .sec--lilikoi .ph img{max-height:64vh;object-fit:cover}
+  .ending .ph img{max-height:56vh;object-fit:cover}
+}
+.strip{padding-top:40px}
+@media (min-width:768px){ .strip{padding-top:56px} }
+
+/* the opening band */
+.intro{padding:16px var(--m) 40px}
+.crumbs{margin-bottom:16px}
+.intro .label{margin-bottom:16px}
+.intro h1{font-size:40px}
+.intro__lede{margin-top:14px}
+.intro__actions{margin-top:24px}
+@media (min-width:768px){ .intro{padding:24px var(--m) 56px} .intro h1{font-size:56px} }
+@media (min-width:1024px){ .intro{padding:28px var(--m) 64px} .intro h1{font-size:clamp(56px, 4.4vw, 72px)} }
+
+/* the cover photograph */
+.cover .ph img{height:min(52vh, 60vw)}
+@media (min-width:1024px){ .cover .ph img{height:min(58vh, 34vw)} }
+
+/* blocks */
+.blk{margin-top:64px}
+.blk__body{margin-top:16px}
+.blk__body > * + *{margin-top:14px}
+.blk--band,.blk--dark{margin-top:64px;padding-block:56px}
+@media (min-width:768px){ .blk{margin-top:80px} .blk--band,.blk--dark{margin-top:80px;padding-block:72px} }
+@media (min-width:1024px){
+  .blk{margin-top:96px}
+  .blk--band,.blk--dark{margin-top:96px;padding-block:80px}
+  .blk > .blk__head{grid-column:1 / 5}
+  .blk > .blk__body{grid-column:5 / 13;margin-top:4px}
+  .blk h2{font-size:clamp(40px, 3.2vw, 52px)}
+}
+.blk--band + .blk--dark,.blk--dark + .blk--band,.blk--band + .blk--band,.blk--dark + .blk--dark{margin-top:0}
+
+/* lists in columns: two from 768 (rooms, stations, prices, rules) */
+.rows li{padding:14px 0}
+@media (min-width:768px){
+  .rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);border-bottom:0}
+  .rows li{border-bottom:1px solid var(--hair);margin-bottom:-1px}
+  .blk--dark .rows li{border-bottom-color:var(--hair-dark)}
+  .ticks{columns:2;column-gap:var(--g)}
+  .ticks li{break-inside:avoid}
+}
+
+/* cards and pairs: shorter photographs on wide screens */
+.cards{gap:36px 20px;margin-top:28px}
+@media (min-width:768px){ .card .ph img{aspect-ratio:4 / 3} }
+@media (min-width:1024px){ .cards{grid-template-columns:repeat(3,minmax(0,1fr))} .cards--4{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.pair{margin-top:28px}
+@media (min-width:768px){ .pair .ph img{aspect-ratio:3 / 2} }
+
+/* questions in two columns on desktop */
+@media (min-width:1024px){
+  .qa--cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);align-items:start;border-bottom:0}
+  .qa--cols details{border-bottom:1px solid var(--hair);margin-bottom:-1px}
+}
+
+/* the closing invitation */
+.next{margin-top:64px;padding:48px var(--m)}
+.next h2{font-size:32px}
+.next__actions{margin-top:20px}
+@media (min-width:768px){ .next{margin-top:80px;padding-block:56px} .next h2{font-size:40px} }
+@media (min-width:1024px){
+  .next{margin-top:96px;padding-block:56px;align-items:center}
+  .next > *{grid-column:auto}
+  .next h2{grid-column:1 / 6;grid-row:1 / 3;font-size:clamp(40px, 3.2vw, 52px)}
+  .next p{grid-column:7 / 13;margin-top:0}
+  .next .next__actions{grid-column:7 / 13}
+}
+
+/* the footer: the same map in less height; links keep 44px on touch screens, 32px with a mouse */
+.foot{padding:48px var(--m) 24px}
+.foot__intro{gap:28px;padding-bottom:32px}
+.foot__care{font-size:22px}
+.foot__map{gap:28px 24px;padding:32px 0}
+@media (min-width:1024px){ .foot{padding:64px var(--m) 24px} .foot__map{padding:40px 0} }
+@media (pointer:fine){
+  .foot ul a,.foot__legal a{min-height:32px}
+  .foot address a{padding:4px 0}
+}
+
+/* the photo gallery: a tight grid, two across on a phone, four on a desktop */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:24px;padding:0;list-style:none}
+.shots .ph img{aspect-ratio:1 / 1;object-fit:cover}
+@media (min-width:768px){ .shots{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px} }
+@media (min-width:1024px){ .blk > .shots{grid-column:1 / 13} .shots{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g)} }
+
+/* lists inside an opened question stay in one column */
+@media (min-width:768px){ .qa .rows{grid-template-columns:minmax(0,1fr)} .qa .ticks{columns:1} }
+
+/* gallery sections: a short heading row over each grid of photographs */
+.blk--tight{margin-top:48px}
+@media (min-width:1024px){ .blk--tight{margin-top:64px} .blk--tight > .blk__head h2{font-size:clamp(32px, 2.6vw, 40px)} }
+.blk--tight .shots{margin-top:16px}
+
+/* a list folded behind its label (treatment enhancements) */
+.fold{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.fold > summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;font-size:14px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;list-style:none}
+.fold > summary::-webkit-details-marker{display:none}
+.fold > summary::after{content:"+";font-family:var(--display);font-size:26px;letter-spacing:0;font-weight:400}
+.fold[open] > summary::after{content:"\2212"}
+.fold > .rows{margin-bottom:12px}
+.blk--dark .fold{border-color:var(--hair-dark)}
+
+/* photo pairs sit under the words, in the same columns, so they add a strip rather than a screen */
+@media (min-width:1024px){ .blk > .pair{grid-column:5 / 13;gap:var(--g)} }
+
+/* desktop blocks: the heading over the words, the lists in three columns across the page */
+@media (min-width:1024px){
+  .blk > .blk__head,.blk > .blk__body{grid-column:1 / 13}
+  .blk > .blk__body{margin-top:20px}
+  .blk__head{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:28px}
+  .blk__head .label{flex:0 0 auto;margin:0}
+  .blk__head .label::after{display:none}
+  .blk__head h2{flex:1 1 auto}
+  .blk__body > p,.blk__body > .blk__note{max-width:46rem}
+  .blk__body .rows{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .blk__body .ticks{columns:3}
+  .blk__body > .qa{max-width:none}
+  .blk__body > .qa:not(.qa--cols){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);align-items:start;border-bottom:0}
+  .blk__body > .qa:not(.qa--cols) details{border-bottom:1px solid var(--hair);margin-bottom:-1px}
+  .blk > .pair{grid-column:1 / 13}
+  .blk > .pair .ph img{aspect-ratio:21 / 9}
+}
+@media (min-width:1024px){
+  .blk{margin-top:72px}
+  .blk--band,.blk--dark{margin-top:72px;padding-block:64px}
+  .blk--band + .blk--dark,.blk--dark + .blk--band,.blk--band + .blk--band,.blk--dark + .blk--dark{margin-top:0}
+  .cover .ph img{height:min(46vh, 30vw)}
+  .next{margin-top:72px;padding-block:48px}
+  .blk--band + .next,.blk--dark + .next{margin-top:0}
+}
+@media (max-width:1023px){
+  .blk{margin-top:56px}
+  .blk--band,.blk--dark{margin-top:56px;padding-block:48px}
+  .blk--band + .blk--dark,.blk--dark + .blk--band,.blk--band + .blk--band,.blk--dark + .blk--dark{margin-top:0}
+  .cover .ph img{height:min(40vh, 56vw)}
+  .next{margin-top:56px;padding-block:44px}
+  .blk--band + .next,.blk--dark + .next{margin-top:0}
+}
+
+/* gallery: one grid, each photograph captioned with its part of the club */
+.shots--cap figure{margin:0}
+.shots--cap .cap{margin-top:8px;font-size:14px}
+.shots--cap .cap a{color:var(--soft);text-decoration:none}
+.shots--cap .cap a:hover{color:var(--ink);text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid var(--hair);color:var(--ink);text-decoration:none;font-size:15px}
+.chips a:hover{background:var(--stone)}
+
+/* home: the salt photograph no taller than the screen allows */
+@media (min-width:1024px){ .gal__tall .ph img{max-height:72vh;object-fit:cover} }
+
+/* home: the four rooms in a grid, two across from 768 (water, heat, rest, treatments) */
+.rooms{display:grid;gap:48px;margin-top:var(--sp);padding-inline:var(--m)}
+.room{display:flex;flex-direction:column}
+.room .ph img{width:100%;aspect-ratio:3 / 2;object-fit:cover}
+.room__txt{padding-top:20px}
+.room__txt .label{margin-bottom:12px}
+.room h2{font-size:36px}
+.room .body{margin-top:10px}
+.room--dark{background:var(--deep);color:var(--paper);margin-inline:calc(-1 * var(--m));padding:0 var(--m) 32px}
+.room--dark .ph{margin-inline:calc(-1 * var(--m))}
+.room--dark a{color:var(--paper)}
+.room--dark .label::after{background:var(--hair-dark)}
+@media (min-width:768px){
+  .rooms{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);row-gap:56px}
+  .room--dark,.room--dark .ph{margin-inline:0}
+  .room--dark{padding:0 0 28px}
+  .room--dark .room__txt{padding-inline:28px}
+  .room h2{font-size:44px}
+}
+@media (min-width:1024px){
+  .rooms > .room:nth-child(odd){grid-column:1 / 7}
+  .rooms > .room:nth-child(even){grid-column:7 / 13}
+  .room h2{font-size:clamp(44px, 3.4vw, 56px)}
+  .room .ph img{aspect-ratio:16 / 9}
+}
+
+@media (min-width:1024px){ .rooms{grid-template-columns:repeat(12,minmax(0,1fr))} }
