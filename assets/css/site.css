@@ -739,3 +739,5 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 /* "Home", the first crumb, is narrower than 44px: its target widens, the trail does not move */
 .crumbs a{padding-inline:3px;margin-inline:-3px}
 .chips a{min-height:44px}
+/* The Dry Well's logo: a 2x file drawn at half its size */
+.blk__logo{width:280px}
