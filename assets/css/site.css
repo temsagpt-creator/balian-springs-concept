@@ -728,3 +728,14 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 }
 
 @media (min-width:1024px){ .rooms{grid-template-columns:repeat(12,minmax(0,1fr))} }
+
+/* ======================================================================================================
+   Quality pass (Oct 22): every link and button a 44px target on a phone, without moving a line of the layout.
+   ====================================================================================================== */
+/* a link that is the whole heading or caption: the padding makes the target, the negative margin gives the space back */
+.rows h3 a{display:inline-block;padding-block:11px;margin-block:-11px}      /* 17px at 1.4: 24 + 22 */
+.card h3 a{display:inline-block;padding-block:7px;margin-block:-7px}        /* 28px at 1.1: 31 + 14 */
+.shots--cap .cap a{display:inline-block;padding-block:12px;margin-block:-12px}  /* 14px at 1.5: 21 + 24 */
+/* "Home", the first crumb, is narrower than 44px: its target widens, the trail does not move */
+.crumbs a{padding-inline:3px;margin-inline:-3px}
+.chips a{min-height:44px}
