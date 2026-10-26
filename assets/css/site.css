@@ -1,17 +1,17 @@
 /* Balian Springs homepage concept v11, direction A: editorial calm on a 12-column grid.
-   One display face (Bodoni Moda, optical sizes) and one quiet text face (Hanken Grotesk).
+   Balian's own type system: Gotham at the core, Sanford for headlines only (brand guideline p.9-10).
    Deep teal night for the header, the cover panel, the sauna room and the footer; warm limestone paper; a stone band.
    Balian's own teal for links and buttons on paper. Motion: the cover film, a slow drift on two photographs,
    sections settling in. Nothing moves on hover. All of it stops for reduced motion. */
 :root{
-  --paper:#F3ECE1;      /* warm limestone, never pure white */
+  --paper:#FFF8EF;      /* Sungi Seashell, Balian brand guideline p.8 */
   --stone:#E9DFCF;      /* the visit band */
   --ink:#1E302F;        /* deep teal ink: all text on paper and stone */
   --soft:#4E5C5A;       /* captions on paper */
   --deep:#1B2E2D;       /* the dark rooms: text on it is paper */
   --soft-dark:#CDC3B4;  /* captions and labels on deep */
   --teal:#3E5C5B;       /* Balian's own brand teal: button and links on paper */
-  --hair:#C9B9A1;       /* hairline rules on paper, never text */
+  --hair:#C7A27B;       /* Oasis Gold, Balian brand guideline p.8: hairline rules on paper, never text */
   --hair-dark:#3C5250;  /* hairlines on deep, never text */
   --line-dark:#A9B6B4;  /* field and outline buttons on deep: 3:1 or more */
   --wait:#E3D8C7;       /* photo frame colour while an image loads */
@@ -22,8 +22,8 @@
   --measure:34rem;
   --ease:cubic-bezier(.22,.61,.36,1);
   --out:cubic-bezier(.16,1,.3,1);  /* ease-out: arrives, then rests */
-  --display:"Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
-  --text:"Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --display:"Gilda Display", Georgia, "Times New Roman", serif;  /* stand-in for Sanford until the licensed web font arrives */
+  --text:"Montserrat", "Segoe UI", system-ui, sans-serif;  /* stand-in for Gotham until the licensed web font arrives */
 }
 @media (min-width:768px){ :root{ --sp:152px; --hdr:80px; } }
 @media (max-width:479px){ .hdr .mark span{display:none} }  /* phones: the drop mark beside Enter now and Menu */
@@ -32,7 +32,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:16px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 body.is-locked{overflow:hidden}
 img,video{display:block;max-width:100%;height:auto}
 p{margin:0;text-wrap:pretty}
@@ -50,7 +50,7 @@ figure{margin:0}
 .skip:focus{left:var(--m);top:8px;background:var(--paper);color:var(--ink);padding:10px 14px;z-index:30}
 
 /* type: one display face, one size per level */
-.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.028em;line-height:1.04;text-wrap:balance}
+.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.01em;line-height:1.04;text-wrap:balance}
 .sec h2{font-size:40px}
 .body{max-width:var(--measure);margin-top:18px}
 .more{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:500;letter-spacing:.02em}
@@ -153,7 +153,7 @@ figure{margin:0}
 .fare:first-child{padding-right:20px}
 .fare + .fare::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--hair);transform-origin:top}
 .fare h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:.02em}
-.fare .price{display:block;margin:8px 0 6px;font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.02em}
+.fare .price{display:block;margin:8px 0 6px;font-family:var(--text);font-weight:500;font-size:60px;line-height:1;letter-spacing:-.02em}
 .fare .price span{font-size:.5em;vertical-align:.62em;margin-right:.06em;letter-spacing:0}
 .fare{display:flex;flex-direction:column}
 .fare p{font-size:16px;line-height:1.45}
@@ -180,7 +180,7 @@ figure{margin:0}
 .foot a{color:var(--paper)}
 .foot a:hover{color:var(--paper);text-decoration-thickness:2px}
 .foot__intro{display:grid;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--hair-dark)}
-.foot__intro .mark img{height:40px}
+.foot__intro .mark img{height:88px}
 .mark--icon span{display:none}
 .foot__care{margin-top:18px;max-width:30rem;font-family:var(--display);font-optical-sizing:auto;font-size:26px;line-height:1.25;letter-spacing:-.01em}
 .club label{display:block;font-weight:500;letter-spacing:.02em}
@@ -358,10 +358,10 @@ figure{margin:0}
    ====================================================================================================== */
 
 /* the lockup: their own drop and wordmark, in paper on the night */
-.mark--logo img{height:22px;width:auto}
-@media (min-width:768px){ .mark--logo img{height:26px} }
-@media (min-width:1024px){ .hdr .mark--logo img{height:30px} }
-.foot .mark--logo img{height:30px}
+.mark--logo img{height:36px;width:auto}
+@media (min-width:768px){ .mark--logo img{height:40px} }
+@media (min-width:1024px){ .hdr .mark--logo img{height:44px} }
+.foot .mark--logo img{height:88px}  /* primary stacked lock-up, 144px wide or more (brand guideline p.7) */
 
 /* inner pages: the header sits on the night instead of over a film */
 body.is-paper-top .hdr{position:relative;background:var(--deep)}
@@ -428,7 +428,7 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 .rows li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;padding:18px 0;border-top:1px solid var(--hair)}
 .rows h3{font-family:var(--text);font-size:17px;font-weight:500;letter-spacing:.01em;line-height:1.4}
 .rows p{font-size:16px;line-height:1.55;color:var(--soft)}
-.rows .v{font-family:var(--display);font-optical-sizing:auto;font-size:28px;line-height:1.1;letter-spacing:-.01em;color:inherit}
+.rows .v{font-family:var(--text);font-weight:500;font-size:28px;line-height:1.1;letter-spacing:-.01em;color:inherit}
 .rows--2 li{grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:20px}
 .rows--2 li > :last-child{text-align:right}
 .blk--dark .rows{border-color:var(--hair-dark)}
@@ -454,7 +454,7 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 .qa details{border-top:1px solid var(--hair)}
 .qa summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:56px;padding:12px 0;font-weight:500;cursor:pointer;list-style:none}
 .qa summary::-webkit-details-marker{display:none}
-.qa summary::after{content:"+";flex:none;font-family:var(--display);font-size:28px;line-height:1;font-weight:400}
+.qa summary::after{content:"+";flex:none;font-family:var(--text);font-size:28px;line-height:1;font-weight:400}
 .qa details[open] summary::after{content:"\2212"}
 .qa details > div{padding:0 0 22px;max-width:var(--measure)}
 .qa details > div > * + *{margin-top:12px}
@@ -487,7 +487,7 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 .hero__fares{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;max-width:520px;margin:20px auto 0}
 .hfare{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:72px;padding:10px 8px;border:1px solid var(--line-dark);color:var(--paper);text-decoration:none;line-height:1.25;background:rgba(13,24,23,.28)}
 .hfare:hover{background:var(--paper);color:var(--ink)}
-.hfare b{font-family:var(--display);font-optical-sizing:auto;font-weight:400;font-size:26px;letter-spacing:-.01em;line-height:1.05}
+.hfare b{font-family:var(--text);font-weight:500;font-size:26px;letter-spacing:-.01em;line-height:1.05}
 .hfare span{font-size:14px;letter-spacing:.04em}
 .hero__actions .tlink{min-height:44px}
 @media (max-width:767px){ .hero__panel{padding-bottom:20px} .hero__panel .eyebrow{margin-bottom:12px} .hero__panel .eyebrow::after{margin-top:12px} .hero__actions{margin-top:6px} }
@@ -647,7 +647,7 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 .fold{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .fold > summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;font-size:14px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;list-style:none}
 .fold > summary::-webkit-details-marker{display:none}
-.fold > summary::after{content:"+";font-family:var(--display);font-size:26px;letter-spacing:0;font-weight:400}
+.fold > summary::after{content:"+";font-family:var(--text);font-size:26px;letter-spacing:0;font-weight:400}
 .fold[open] > summary::after{content:"\2212"}
 .fold > .rows{margin-bottom:12px}
 .blk--dark .fold{border-color:var(--hair-dark)}
