@@ -801,3 +801,4 @@ body.is-paper-top.has-notice .hdr{top:0}
   .blk--form > .blk__body{grid-column:6 / 13;margin-top:6px}
   .blk--form .form{max-width:none}
 }
+@media (min-width:1024px){ .blk__body .evts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--g)} }
