@@ -6,6 +6,7 @@
 <title>Hydrotherapy Pools in Northern Virginia | Balian Springs</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Indoor and rooftop hydrotherapy pools with aqua-jet stations, a coed plunge and a Hinoki bath at Balian Springs in Alexandria, Northern Virginia.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="../assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -71,9 +72,8 @@
  ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
@@ -226,13 +226,15 @@
       <a class="mark mark--logo" href="../" aria-label="Balian Springs, home"><img src="../assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -300,5 +302,6 @@
   </div>
 </footer>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/connect.js" defer></script>
 </body>
 </html>

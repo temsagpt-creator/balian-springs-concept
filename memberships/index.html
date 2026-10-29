@@ -6,6 +6,7 @@
 <title>Memberships | Balian Springs, Alexandria VA</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Make Balian Springs part of your week with a Sunset evening membership or All Access, with regular use of the pools, sauna rooms and lounges.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="../assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -65,9 +66,8 @@
  ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
@@ -124,7 +124,7 @@
     <h1 class="d" id="page-h">Make the club part of your week</h1>
     <p class="intro__lede">Unlimited entry to the club, on two schedules: Sunset for your evenings, and All Access from 9:00 am to 9:30 pm.</p>
     <div class="intro__actions">
-      <a class="btn btn--light" href="https://forms.office.com/r/afF9kF59dK">Sign up to learn more</a>
+      <a class="btn btn--light" href="#inquire">Sign up to learn more</a>
       <a class="more" href="../day-pass/">Or start with a day pass</a>
     </div>
   </section>
@@ -148,13 +148,13 @@
           <h3>Sunset</h3>
           <b class="price"><span>$</span>385</b>
           <p>Month to month, plus a $130 enrollment fee. Daily, 5:00 pm to 9:30 pm.</p>
-          <a class="btn fare__buy" href="https://forms.office.com/r/afF9kF59dK" aria-label="Sign up to learn more: Sunset, $385 month to month">Sign up</a>
+          <a class="btn fare__buy" href="#inquire" aria-label="Sign up to learn more: Sunset, $385 month to month">Sign up</a>
         </li>
         <li class="fare">
           <h3>All Access</h3>
           <b class="price"><span>$</span>575</b>
           <p>Month to month, plus a $130 enrollment fee. Daily, 9:00 am to 9:30 pm.</p>
-          <a class="btn fare__buy" href="https://forms.office.com/r/afF9kF59dK" aria-label="Sign up to learn more: All Access, $575 month to month">Sign up</a>
+          <a class="btn fare__buy" href="#inquire" aria-label="Sign up to learn more: All Access, $575 month to month">Sign up</a>
         </li>
       </ul>
       <p class="incl">Month to month memberships have a 2 month minimum activation. All Access is also offered as an annual membership.</p>
@@ -202,12 +202,35 @@
     </div>
   </section>
 
+  <section class="blk blk--band blk--form grid" id="inquire" aria-labelledby="join-h">
+    <div class="blk__head rvt">
+      <p class="label">Sign up to learn more</p>
+      <h2 class="d" id="join-h">Ask about a membership</h2>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="membership" novalidate aria-labelledby="join-h">
+        <div class="f"><label for="m-name">Your name</label><input id="m-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="m-email">Email</label><input id="m-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="m-phone">Phone <span class="opt">(optional)</span></label><input id="m-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f"><label for="m-interest">Membership</label><select id="m-interest" name="interest">
+            <option value="">Not sure yet</option>
+            <option>Sunset</option>
+            <option>All Access, month to month</option>
+            <option>All Access, annual</option>
+          </select></div>
+        <div class="f f--full"><label for="m-message">Questions for us <span class="opt">(optional)</span></label><textarea id="m-message" name="message" maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
+    </div>
+  </section>
+
   <section class="next grid" aria-labelledby="next-h">
     <h2 class="d" id="next-h">Not ready to join?</h2>
     <p>Start with a day pass, and become a member for the day.</p>
     <div class="next__actions">
       <a class="btn" href="../day-pass/">See day passes</a>
-      <a class="more" href="https://forms.office.com/r/afF9kF59dK">Sign up to learn more</a>
+      <a class="more" href="#inquire">Sign up to learn more</a>
     </div>
   </section>
 </main>
@@ -218,13 +241,15 @@
       <a class="mark mark--logo" href="../" aria-label="Balian Springs, home"><img src="../assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -292,5 +317,6 @@
   </div>
 </footer>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/connect.js" defer></script>
 </body>
 </html>

@@ -61,8 +61,8 @@
   });
   each('.kbw', function (el) { kb.observe(el); });
 
-  /* the cover film: four of their own photographs (the rooftop pavilion, the carved gate over the pool,
-     the salt sauna, the meditation room), each gently in motion, crossfading in a 14.4 s loop. It loads after the page has finished,
+  /* the cover film: four shots from Balian's own Facility Tour video (the carved gate over the indoor pool, the Hinoki Bath
+     under the rooftop pavilion, the meditation room, the rooftop pool), crossfading in a 13.9 s seamless loop; 16:9 on wide screens, square on phones. It loads after the page has finished,
      starts muted and inline, fades in over the same still, pauses off screen, and is skipped for reduced motion
      (returned above), save-data and 2G. */
   var c = navigator.connection || {};

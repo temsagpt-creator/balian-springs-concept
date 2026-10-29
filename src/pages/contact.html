@@ -41,7 +41,24 @@ jsonld: org
     </div>
   </section>
 
-  <section class="blk blk--band grid" aria-labelledby="find-h">
+  <section class="blk blk--band blk--form grid" id="write" aria-labelledby="write-h">
+    <div class="blk__head rvt">
+      <p class="label">Write to us</p>
+      <h2 class="d" id="write-h">Send us a message</h2>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="contact" novalidate aria-labelledby="write-h">
+        <div class="f"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="c-phone">Phone <span class="opt">(optional)</span></label><input id="c-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f f--full"><label for="c-message">Your message</label><textarea id="c-message" name="message" required maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send message</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="blk grid" aria-labelledby="find-h">
     <div class="blk__head rvt">
       <p class="label">Visit</p>
       <h2 class="d" id="find-h">Where to find us</h2>

@@ -6,6 +6,7 @@
 <title>Event Spaces in Alexandria, VA | Balian Springs</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Host corporate events, birthdays and private gatherings at Balian Springs in Alexandria, VA, with rooftop cabanas and pergolas and the iLounge.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="../assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -65,9 +66,8 @@
  ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
@@ -124,7 +124,7 @@
     <h1 class="d" id="page-h">Event spaces at Balian Springs</h1>
     <p class="intro__lede">From corporate presentations and intimate dinners to casting calls, milestones and proposals, our spaces in Alexandria bring people together in pursuit of Collective Care.</p>
     <div class="intro__actions">
-      <a class="btn btn--light" href="https://forms.office.com/Pages/ResponsePage.aspx?id=LvqRWOgAtk2cTYNDLvrQWFMribZsUm1BluN5A46preJUMVVZSFVGVVhPNEI5NThRS04zWVJYWkVZUS4u">Make an inquiry</a>
+      <a class="btn btn--light" href="#inquire">Make an inquiry</a>
       <a class="more" href="#spaces-h">See the spaces</a>
     </div>
   </section>
@@ -231,12 +231,37 @@
     </div>
   </section>
 
-  <section class="next grid" aria-labelledby="next-h">
-    <h2 class="d" id="next-h">Planning something?</h2>
-    <p>Send us the details through our inquiry form.</p>
-    <div class="next__actions">
-      <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=LvqRWOgAtk2cTYNDLvrQWFMribZsUm1BluN5A46preJUMVVZSFVGVVhPNEI5NThRS04zWVJYWkVZUS4u">Make an inquiry</a>
-      <a class="more" href="../workshops/">Wellness workshops</a>
+  <section class="blk blk--band blk--form grid" id="inquire" aria-labelledby="next-h">
+    <div class="blk__head rvt">
+      <p class="label">Inquire</p>
+      <h2 class="d" id="next-h">Planning something?</h2>
+      <p class="blk__note">Send us the details of your event.</p>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="event" novalidate aria-labelledby="next-h">
+        <div class="f"><label for="e-name">Your name</label><input id="e-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="e-email">Email</label><input id="e-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="e-phone">Phone <span class="opt">(optional)</span></label><input id="e-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f"><label for="e-org">Company or group <span class="opt">(optional)</span></label><input id="e-org" name="organization" type="text" autocomplete="organization" maxlength="160"></div>
+        <div class="f"><label for="e-date">Preferred date <span class="opt">(optional)</span></label><input id="e-date" name="preferredDate" type="date"></div>
+        <div class="f"><label for="e-guests">Number of guests</label><input id="e-guests" name="guests" type="number" min="1" max="500" inputmode="numeric" required></div>
+        <div class="f f--full"><label for="e-space">Space you have in mind</label><select id="e-space" name="space">
+            <option value="">Not sure yet</option>
+            <option>VIP Cabanas</option>
+            <option>Immersion iLounge</option>
+            <option>VIP Pergolas</option>
+            <option>Meditation Room</option>
+            <option>Media Room</option>
+            <option>Aqua Lounge</option>
+            <option>Tropical Atrium</option>
+            <option>Sleeping Area</option>
+            <option>Event Space</option>
+            <option>Work Space</option>
+          </select></div>
+        <div class="f f--full"><label for="e-message">Tell us about your event</label><textarea id="e-message" name="message" required maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send inquiry</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
     </div>
   </section>
 </main>
@@ -247,13 +272,15 @@
       <a class="mark mark--logo" href="../" aria-label="Balian Springs, home"><img src="../assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -321,5 +348,6 @@
   </div>
 </footer>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/connect.js" defer></script>
 </body>
 </html>

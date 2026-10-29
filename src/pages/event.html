@@ -15,7 +15,7 @@ jsonld: org
     <h1 class="d" id="page-h">Event spaces at Balian Springs</h1>
     <p class="intro__lede">From corporate presentations and intimate dinners to casting calls, milestones and proposals, our spaces in Alexandria bring people together in pursuit of Collective Care.</p>
     <div class="intro__actions">
-      <a class="btn btn--light" href="https://forms.office.com/Pages/ResponsePage.aspx?id=LvqRWOgAtk2cTYNDLvrQWFMribZsUm1BluN5A46preJUMVVZSFVGVVhPNEI5NThRS04zWVJYWkVZUS4u">Make an inquiry</a>
+      <a class="btn btn--light" href="#inquire">Make an inquiry</a>
       <a class="more" href="#spaces-h">See the spaces</a>
     </div>
   </section>
@@ -122,12 +122,37 @@ jsonld: org
     </div>
   </section>
 
-  <section class="next grid" aria-labelledby="next-h">
-    <h2 class="d" id="next-h">Planning something?</h2>
-    <p>Send us the details through our inquiry form.</p>
-    <div class="next__actions">
-      <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=LvqRWOgAtk2cTYNDLvrQWFMribZsUm1BluN5A46preJUMVVZSFVGVVhPNEI5NThRS04zWVJYWkVZUS4u">Make an inquiry</a>
-      <a class="more" href="{{root}}workshops/">Wellness workshops</a>
+  <section class="blk blk--band blk--form grid" id="inquire" aria-labelledby="next-h">
+    <div class="blk__head rvt">
+      <p class="label">Inquire</p>
+      <h2 class="d" id="next-h">Planning something?</h2>
+      <p class="blk__note">Send us the details of your event.</p>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="event" novalidate aria-labelledby="next-h">
+        <div class="f"><label for="e-name">Your name</label><input id="e-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="e-email">Email</label><input id="e-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="e-phone">Phone <span class="opt">(optional)</span></label><input id="e-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f"><label for="e-org">Company or group <span class="opt">(optional)</span></label><input id="e-org" name="organization" type="text" autocomplete="organization" maxlength="160"></div>
+        <div class="f"><label for="e-date">Preferred date <span class="opt">(optional)</span></label><input id="e-date" name="preferredDate" type="date"></div>
+        <div class="f"><label for="e-guests">Number of guests</label><input id="e-guests" name="guests" type="number" min="1" max="500" inputmode="numeric" required></div>
+        <div class="f f--full"><label for="e-space">Space you have in mind</label><select id="e-space" name="space">
+            <option value="">Not sure yet</option>
+            <option>VIP Cabanas</option>
+            <option>Immersion iLounge</option>
+            <option>VIP Pergolas</option>
+            <option>Meditation Room</option>
+            <option>Media Room</option>
+            <option>Aqua Lounge</option>
+            <option>Tropical Atrium</option>
+            <option>Sleeping Area</option>
+            <option>Event Space</option>
+            <option>Work Space</option>
+          </select></div>
+        <div class="f f--full"><label for="e-message">Tell us about your event</label><textarea id="e-message" name="message" required maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send inquiry</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
     </div>
   </section>
 </main>

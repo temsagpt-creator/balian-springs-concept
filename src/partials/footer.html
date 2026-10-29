@@ -5,13 +5,15 @@
       <a class="mark mark--logo" href="{{root}}" aria-label="Balian Springs, home"><img src="{{root}}assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -79,5 +81,6 @@
   </div>
 </footer>
 <script src="{{root}}assets/js/site.js" defer></script>
+<script src="{{root}}assets/js/connect.js" defer></script>
 </body>
 </html>

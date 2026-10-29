@@ -6,6 +6,7 @@
 <title>Self Care Social Club | Balian Springs</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="A Self Care Social Club in Alexandria, VA, with hydrotherapy pools, sauna rooms, Lilikoi Day Spa and day passes for guests from Northern Virginia and DC.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -115,12 +116,11 @@
  "@id": "https://baliansprings.com/#dayspa"
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="preload" as="image" href="assets/img/v7-dusk-poster-900.webp" media="(max-width: 767px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/v7-dusk-poster-1440.webp" media="(min-width: 768px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/v12-poster-900.webp" media="(max-width: 767px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/v12-poster-1600x900.webp" media="(min-width: 768px)" fetchpriority="high">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
   document.documentElement.classList.add('js');
@@ -181,12 +181,12 @@
   </div>
   <figure class="hero__media" id="hero">
     <picture>
-      <source media="(max-width: 767px)" srcset="assets/img/v7-dusk-poster-900.webp" width="900" height="900">
-      <img src="assets/img/v7-dusk-poster-1440.webp" width="1440" height="1440" fetchpriority="high" alt="The rooftop pavilion at dusk, lit softly above the hydrotherapy pool">
+      <source media="(max-width: 767px)" srcset="assets/img/v12-poster-900.webp" width="900" height="900">
+      <img src="assets/img/v12-poster-1600x900.webp" width="1600" height="900" fetchpriority="high" alt="The indoor hydrotherapy pool, palms and the carved stone gate rising from the water">
     </picture>
     <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-      data-phone-mp4="assets/img/v9-film-720.mp4" data-phone-webm="assets/img/v9-film-720.webm"
-      data-wide-mp4="assets/img/v9-film-1200.mp4" data-wide-webm="assets/img/v9-film-1200.webm"></video>
+      data-phone-mp4="assets/img/v12-film-720.mp4" data-phone-webm="assets/img/v12-film-720.webm"
+      data-wide-mp4="assets/img/v12-film-1600x900.mp4" data-wide-webm="assets/img/v12-film-1600x900.webm"></video>
   </figure>
 </section>
 
@@ -299,13 +299,15 @@
       <a class="mark mark--logo" href="./" aria-label="Balian Springs, home"><img src="assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -373,5 +375,6 @@
   </div>
 </footer>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/connect.js" defer></script>
 </body>
 </html>

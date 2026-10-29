@@ -14,7 +14,7 @@ jsonld: org
     <h1 class="d" id="page-h">Partner with Balian Springs</h1>
     <p class="intro__lede">We are committed to fostering community and wellness through collaborative efforts. Join our Collective Care program, because self care is better together.</p>
     <div class="intro__actions">
-      <a class="btn btn--light" href="https://forms.office.com/r/C5xQNUqAEh">Apply now</a>
+      <a class="btn btn--light" href="#inquire">Apply now</a>
       <a class="more" href="mailto:events@baliansprings.com">Email events@baliansprings.com</a>
     </div>
   </section>
@@ -68,12 +68,22 @@ jsonld: org
     </div>
   </section>
 
-  <section class="next grid" aria-labelledby="next-h">
-    <h2 class="d" id="next-h">Partner with us</h2>
-    <p>Apply through our online form. Have any questions? Please email <a href="mailto:events@baliansprings.com">events@baliansprings.com</a>.</p>
-    <div class="next__actions">
-      <a class="btn" href="https://forms.office.com/r/C5xQNUqAEh">Apply now</a>
-      <a class="more" href="{{root}}mission/">Read our mission</a>
+  <section class="blk blk--band blk--form grid" id="inquire" aria-labelledby="next-h">
+    <div class="blk__head rvt">
+      <p class="label">Collective Care</p>
+      <h2 class="d" id="next-h">Partner with us</h2>
+      <p class="blk__note">Have any questions? Please email <a href="mailto:events@baliansprings.com">events@baliansprings.com</a>.</p>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="partnership" novalidate aria-labelledby="next-h">
+        <div class="f"><label for="p-name">Your name</label><input id="p-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="p-business">Business or practice</label><input id="p-business" name="business" type="text" autocomplete="organization" required maxlength="160"></div>
+        <div class="f"><label for="p-web">Website or social <span class="opt">(optional)</span></label><input id="p-web" name="website" type="text" inputmode="url" maxlength="300"></div>
+        <div class="f f--full"><label for="p-message">How would you like to partner?</label><textarea id="p-message" name="message" required maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Apply</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
     </div>
   </section>
 </main>

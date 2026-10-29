@@ -6,6 +6,7 @@
 <title>Contact Us | Balian Springs, Alexandria VA</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Call (703) 436-9107 or email hello@baliansprings.com. Balian Springs is at 6432 General Green Way, Alexandria, VA 22312, open 9 AM to 9:30 PM daily.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="../assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -65,9 +66,8 @@
  ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
@@ -151,7 +151,24 @@
     </div>
   </section>
 
-  <section class="blk blk--band grid" aria-labelledby="find-h">
+  <section class="blk blk--band blk--form grid" id="write" aria-labelledby="write-h">
+    <div class="blk__head rvt">
+      <p class="label">Write to us</p>
+      <h2 class="d" id="write-h">Send us a message</h2>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="contact" novalidate aria-labelledby="write-h">
+        <div class="f"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="c-phone">Phone <span class="opt">(optional)</span></label><input id="c-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f f--full"><label for="c-message">Your message</label><textarea id="c-message" name="message" required maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send message</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="blk grid" aria-labelledby="find-h">
     <div class="blk__head rvt">
       <p class="label">Visit</p>
       <h2 class="d" id="find-h">Where to find us</h2>
@@ -212,13 +229,15 @@
       <a class="mark mark--logo" href="../" aria-label="Balian Springs, home"><img src="../assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -286,5 +305,6 @@
   </div>
 </footer>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/connect.js" defer></script>
 </body>
 </html>

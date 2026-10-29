@@ -6,6 +6,7 @@
 <title>Photo Gallery | Balian Springs, Alexandria VA</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="See the pools, sauna rooms, lounges, rooftop and events at Balian Springs, the Self Care Social Club in Alexandria, VA.">
+<meta name="bs-api" content="https://balian-springs-admin.lovable.app">
 <meta name="theme-color" content="#1B2E2D">
 <link rel="icon" type="image/png" href="../assets/img/balian-icon.png">
 <script type="application/ld+json">
@@ -65,9 +66,8 @@
  ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/trirong-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>
   /* motion is an enhancement: without this script every section is simply shown */
@@ -136,23 +136,23 @@
     </div>
     <ul class="shots shots--cap rv">
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-gate-900.webp" width="900" height="600" alt="The indoor hydrotherapy pool, with palms on either side of a carved stone gate at its center"></div><figcaption class="cap"><a href="../hydrotherapy-pools/">Hydrotherapy pools</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-plunge-900.webp" width="900" height="1125" loading="lazy" alt="Two plunge pools with stone spouts, beside glass doors that open onto the trees"></div><figcaption class="cap"><a href="../hydrotherapy-pools/">Hydrotherapy pools</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-steps-900.webp" width="900" height="1125" loading="lazy" alt="Steps and handrails leading down into the indoor pool, palms and the carved gate across the water"></div><figcaption class="cap"><a href="../hydrotherapy-pools/">Hydrotherapy pools</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-chairs-900.webp" width="900" height="1125" loading="lazy" alt="Hanging rattan chairs along the deck of the indoor pool"></div><figcaption class="cap"><a href="../hydrotherapy-pools/">Hydrotherapy pools</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-salt-900.webp" width="900" height="1125" loading="lazy" alt="The Himalayan salt sauna, its walls built of softly glowing salt blocks"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-gold-800.webp" width="800" height="1000" loading="lazy" alt="The gold sauna, tiled from floor to ceiling in gold mosaic"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-charcoal-800.webp" width="800" height="1000" loading="lazy" alt="A round sauna room with a dark textured ceiling, a wooden wall and a wooden door"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-wood-800.webp" width="800" height="1000" loading="lazy" alt="A sauna room lined in warm wood, with long wooden benches on both sides"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-loungers-900.webp" width="900" height="1125" loading="lazy" alt="Low black loungers in a quiet white room with windows onto the trees"></div><figcaption class="cap"><a href="../lounges/">Lounges</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-chromo-800.webp" width="800" height="1000" loading="lazy" alt="A wood-lined sauna room glowing in red, pink and blue light from tall panels on its walls"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-mural-800.webp" width="800" height="1000" loading="lazy" alt="Birds among flowering branches painted on the rose-colored walls of the clay sauna"></div><figcaption class="cap"><a href="../saunas/">Sauna rooms</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-skylight-900.webp" width="900" height="1125" loading="lazy" alt="Woven armchairs and white sofas under a long skylight, potted palms beyond"></div><figcaption class="cap"><a href="../lounges/">Lounges</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-meditation-900.webp" width="900" height="1125" loading="lazy" alt="The meditation room, with white drapes overhead and floor cushions in soft daylight"></div><figcaption class="cap"><a href="../lounges/">Lounges</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-beach-900.webp" width="900" height="1125" loading="lazy" alt="Loungers facing a wall-wide screen of a tropical beach and green mountains"></div><figcaption class="cap"><a href="../lounges/">Lounges</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-armchairs-900.webp" width="900" height="1125" loading="lazy" alt="A lounge with pink armchairs, a white sofa and plants against patterned wallpaper"></div><figcaption class="cap"><a href="../lounges/">Lounges</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-pavilion-900.webp" width="900" height="1125" loading="lazy" alt="The rooftop pavilion lit at dusk, a round hot tub glowing beside it"></div><figcaption class="cap"><a href="../event/">The rooftop</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-cabanas-900.webp" width="900" height="1125" loading="lazy" alt="Woven rooftop cabanas with round openings and cushioned seats, under a blue sky"></div><figcaption class="cap"><a href="../event/">The rooftop</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-rooftop-900.webp" width="900" height="675" loading="lazy" alt="The rooftop hydrotherapy pool under a blue sky, with umbrella fountains, loungers and the pavilion beyond"></div><figcaption class="cap"><a href="../event/">The rooftop</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-treatment-800.webp" width="800" height="1000" loading="lazy" alt="A bright treatment room with a massage table made up in white, and a window onto the treetops"></div><figcaption class="cap"><a href="../lilikoi/">Lilikoi Day Spa</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-lilikoi-800.webp" width="800" height="1000" loading="lazy" alt="A wide treatment room with massage tables, a raised tub and windows along one wall"></div><figcaption class="cap"><a href="../lilikoi/">Lilikoi Day Spa</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-cafe-900.webp" width="900" height="1125" loading="lazy" alt="A dining room with wooden tables, black chairs, plants and arched doorways"></div><figcaption class="cap"><a href="../eateries/">Eateries and bars</a></figcaption></figure></li>
-      <li><figure><div class="ph"><img src="../assets/img/p/gallery-bar-800.webp" width="800" height="1000" loading="lazy" alt="A bar with a softly lit patterned counter under a wooden pergola ceiling"></div><figcaption class="cap"><a href="../eateries/">Eateries and bars</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-nails-800.webp" width="800" height="1000" loading="lazy" alt="Manicure stations in pale wood beneath arched mirrors, beside windows onto the trees"></div><figcaption class="cap"><a href="../lilikoi/">Lilikoi Day Spa</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-tub-800.webp" width="800" height="1000" loading="lazy" alt="A treatment room with a tiled soaking tub up a few steps, massage tables and plants by the windows"></div><figcaption class="cap"><a href="../lilikoi/">Lilikoi Day Spa</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-kuta-900.webp" width="900" height="1125" loading="lazy" alt="Long wooden tables and white chairs in the Kuta Kitchen dining room, a wood-trimmed counter behind"></div><figcaption class="cap"><a href="../eateries/">Eateries and bars</a></figcaption></figure></li>
+      <li><figure><div class="ph"><img src="../assets/img/p/gallery-hideout-800.webp" width="800" height="1000" loading="lazy" alt="The Hideout bar, shelves of bottles above a patterned counter under a green tiled ceiling"></div><figcaption class="cap"><a href="../eateries/">Eateries and bars</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-circle-900.webp" width="900" height="1125" loading="lazy" alt="A speaker leads a talk for guests in robes, seated in a circle of rattan chairs"></div><figcaption class="cap"><a href="../workshops/">Workshops and events</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-stretch-900.webp" width="900" height="1125" loading="lazy" alt="Guests on mats stretch their arms up during a class in a room hung with white drapes"></div><figcaption class="cap"><a href="../workshops/">Workshops and events</a></figcaption></figure></li>
       <li><figure><div class="ph"><img src="../assets/img/p/gallery-yoga-900.webp" width="900" height="1125" loading="lazy" alt="A yoga class on mats, arms raised, before a wide screen of forest and waterfall"></div><figcaption class="cap"><a href="../workshops/">Workshops and events</a></figcaption></figure></li>
@@ -176,13 +176,15 @@
       <a class="mark mark--logo" href="../" aria-label="Balian Springs, home"><img src="../assets/img/logo-stacked-white.png" width="715" height="300" alt="Balian Springs, Alexandria, VA" loading="lazy"></a>
       <p class="foot__care">Step into an oasis of wellbeing and tranquility.</p>
     </div>
-    <form class="club" action="#" onsubmit="return false" aria-label="Join the club">
+    <form class="club" action="#" data-subscribe novalidate aria-label="Join the club">
       <label for="club-email">Join the club</label>
       <p>Insider updates, wellness tips and access to special events.</p>
       <div class="club__row">
-        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address">
+        <input id="club-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
         <button type="submit">Join</button>
       </div>
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="club__state" aria-live="polite"></p>
     </form>
   </div>
 
@@ -250,5 +252,6 @@
   </div>
 </footer>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/connect.js" defer></script>
 </body>
 </html>

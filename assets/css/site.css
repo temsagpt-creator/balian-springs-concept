@@ -3,6 +3,14 @@
    Deep teal night for the header, the cover panel, the sauna room and the footer; warm limestone paper; a stone band.
    Balian's own teal for links and buttons on paper. Motion: the cover film, a slow drift on two photographs,
    sections settling in. Nothing moves on hover. All of it stops for reduced motion. */
+/* Type: Balian's guideline (p.9-10) sets Sanford for headlines and Gotham for text. Until their licensed web fonts
+   arrive, the closest open-licence matches stand in, self-hosted (assets/fonts, SIL OFL 1.1):
+   Trirong for Sanford: a wide, low-contrast classical serif with lining figures, the shape of the specimen on p.10;
+   Montserrat for Gotham: the same wide geometric build, Book/Medium/Bold mapped to 400/500/600 (p.9). */
+@font-face{font-family:"Trirong";font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/trirong-300.woff2) format("woff2")}
+@font-face{font-family:"Trirong";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/trirong-400.woff2) format("woff2")}
+@font-face{font-family:"Trirong";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/trirong-500.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/montserrat-var.woff2) format("woff2")}
 :root{
   --paper:#FFF8EF;      /* Sungi Seashell, Balian brand guideline p.8 */
   --stone:#E9DFCF;      /* the visit band */
@@ -22,7 +30,7 @@
   --measure:34rem;
   --ease:cubic-bezier(.22,.61,.36,1);
   --out:cubic-bezier(.16,1,.3,1);  /* ease-out: arrives, then rests */
-  --display:"Gilda Display", Georgia, "Times New Roman", serif;  /* stand-in for Sanford until the licensed web font arrives */
+  --display:"Trirong", Georgia, "Times New Roman", serif;  /* stand-in for Sanford until the licensed web font arrives */
   --text:"Montserrat", "Segoe UI", system-ui, sans-serif;  /* stand-in for Gotham until the licensed web font arrives */
 }
 @media (min-width:768px){ :root{ --sp:152px; --hdr:80px; } }
@@ -50,7 +58,7 @@ figure{margin:0}
 .skip:focus{left:var(--m);top:8px;background:var(--paper);color:var(--ink);padding:10px 14px;z-index:30}
 
 /* type: one display face, one size per level */
-.d{font-family:var(--display);font-optical-sizing:auto;font-weight:400;letter-spacing:-.01em;line-height:1.04;text-wrap:balance}
+.d{font-family:var(--display);font-optical-sizing:auto;font-weight:300;letter-spacing:-.01em;line-height:1.04;text-wrap:balance}
 .sec h2{font-size:40px}
 .body{max-width:var(--measure);margin-top:18px}
 .more{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:500;letter-spacing:.02em}
@@ -251,7 +259,7 @@ figure{margin:0}
 
   /* cover: the film edge to edge, the words bottom-left over six columns */
   .hero{min-height:640px}
-  .hero__media img,.hero__media video{object-position:50% 22%}   /* finial and sky clear of the header; fountain kept */
+  .hero__media img,.hero__media video{object-position:50% 45%}   /* the carved gate and its palms stay in frame */
   .hero__panel{padding:0 var(--m) clamp(48px, 6vh, 80px)}
   .hero__media::after{height:66%;background:linear-gradient(to bottom,rgba(13,24,23,0) 0%,rgba(13,24,23,.56) 26%,rgba(13,24,23,.74) 46%,rgba(13,24,23,.8) 100%)}   /* a touch deeper where the eyebrow sits */
   .eyebrow{font-size:14px;letter-spacing:.26em;margin-bottom:22px}
@@ -741,3 +749,55 @@ body.is-paper-top .hdr{position:relative;background:var(--deep)}
 .chips a{min-height:44px}
 /* The Dry Well's logo: a 2x file drawn at half its size */
 .blk__logo{width:280px}
+
+/* ======================================================================================================
+   Oct 29: forms that land in Balian's own Inquiries inbox (the admin), a closures notice and upcoming events
+   that staff manage there. Fields sit on paper with a hairline frame; nothing moves on hover.
+   ====================================================================================================== */
+.form{display:grid;grid-template-columns:minmax(0,1fr);gap:18px 20px;margin-top:8px;max-width:40rem}
+.form .f{display:flex;flex-direction:column;gap:8px;min-width:0}
+.form .f--full{grid-column:1 / -1}
+.form label,.form legend{font-size:15px;font-weight:500;letter-spacing:.02em;color:var(--ink)}
+.form .opt{font-weight:400;color:var(--soft)}
+.form input,.form select,.form textarea{width:100%;min-height:52px;padding:12px 14px;border:1px solid #8A9896;border-radius:2px;background:var(--paper);color:var(--ink);font:inherit;font-size:16px;line-height:1.4}
+.form textarea{min-height:132px;resize:vertical}
+.form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
+.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-color:var(--teal)}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form__end{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:4px}
+.form__end .btn{width:100%}
+.form__state{min-height:24px;font-size:15px;line-height:1.5;color:var(--soft)}
+.form__state.is-ok{color:var(--teal);font-weight:500}
+.form__state.is-err{color:#8A2C1C;font-weight:500}
+.form__fine{font-size:14px;line-height:1.5;color:var(--soft);max-width:var(--measure)}
+.blk--band .form input,.blk--band .form select,.blk--band .form textarea{background-color:#FFFCF7}
+@media (min-width:768px){
+  .form{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .form__end{flex-direction:row;align-items:center;gap:24px}
+  .form__end .btn{width:auto}
+}
+.club__state{min-height:22px;margin-top:10px;font-size:15px;line-height:1.5;color:var(--soft-dark)}
+.club__state.is-ok{color:var(--paper)}
+
+/* the closures notice: a quiet paper strip above everything, only when staff have posted one */
+.notice{position:relative;z-index:11;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 14px;min-height:44px;padding:10px var(--m);background:var(--paper);color:var(--ink);border-bottom:1px solid var(--hair);font-size:15px;line-height:1.45;text-align:center}
+.notice a{display:inline-flex;align-items:center;min-height:44px;margin-block:-10px;color:var(--teal);font-weight:500;text-underline-offset:.28em}
+body.has-notice .hdr{top:var(--notice-h,0px)}
+body.is-paper-top.has-notice .hdr{top:0}
+
+/* upcoming events, filled from the admin; the section stays hidden until there is something to show */
+.evts{margin:0;padding:0;list-style:none;border-bottom:1px solid var(--hair)}
+.evts li{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:20px 0;border-top:1px solid var(--hair)}
+.evts time{font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.evts h3{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.15;letter-spacing:-.01em}
+.evts p{color:var(--soft);max-width:var(--measure)}
+.evts .more{margin-top:2px}
+/* a block that holds a form: on a wide screen the heading sits to the left and the form fills the columns beside it */
+.blk--form .blk__head .blk__note{margin-top:14px;max-width:24rem}
+@media (min-width:1024px){
+  .blk--form > .blk__head{grid-column:1 / 5;display:block}
+  .blk--form > .blk__head .label{margin-bottom:22px}
+  .blk--form > .blk__head h2{font-size:clamp(44px, 3.4vw, 56px)}
+  .blk--form > .blk__body{grid-column:6 / 13;margin-top:6px}
+  .blk--form .form{max-width:none}
+}

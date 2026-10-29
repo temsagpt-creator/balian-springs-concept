@@ -15,7 +15,7 @@ jsonld: org
     <h1 class="d" id="page-h">Make the club part of your week</h1>
     <p class="intro__lede">Unlimited entry to the club, on two schedules: Sunset for your evenings, and All Access from 9:00 am to 9:30 pm.</p>
     <div class="intro__actions">
-      <a class="btn btn--light" href="https://forms.office.com/r/afF9kF59dK">Sign up to learn more</a>
+      <a class="btn btn--light" href="#inquire">Sign up to learn more</a>
       <a class="more" href="{{root}}day-pass/">Or start with a day pass</a>
     </div>
   </section>
@@ -39,13 +39,13 @@ jsonld: org
           <h3>Sunset</h3>
           <b class="price"><span>$</span>385</b>
           <p>Month to month, plus a $130 enrollment fee. Daily, 5:00 pm to 9:30 pm.</p>
-          <a class="btn fare__buy" href="https://forms.office.com/r/afF9kF59dK" aria-label="Sign up to learn more: Sunset, $385 month to month">Sign up</a>
+          <a class="btn fare__buy" href="#inquire" aria-label="Sign up to learn more: Sunset, $385 month to month">Sign up</a>
         </li>
         <li class="fare">
           <h3>All Access</h3>
           <b class="price"><span>$</span>575</b>
           <p>Month to month, plus a $130 enrollment fee. Daily, 9:00 am to 9:30 pm.</p>
-          <a class="btn fare__buy" href="https://forms.office.com/r/afF9kF59dK" aria-label="Sign up to learn more: All Access, $575 month to month">Sign up</a>
+          <a class="btn fare__buy" href="#inquire" aria-label="Sign up to learn more: All Access, $575 month to month">Sign up</a>
         </li>
       </ul>
       <p class="incl">Month to month memberships have a 2 month minimum activation. All Access is also offered as an annual membership.</p>
@@ -93,12 +93,35 @@ jsonld: org
     </div>
   </section>
 
+  <section class="blk blk--band blk--form grid" id="inquire" aria-labelledby="join-h">
+    <div class="blk__head rvt">
+      <p class="label">Sign up to learn more</p>
+      <h2 class="d" id="join-h">Ask about a membership</h2>
+    </div>
+    <div class="blk__body rv">
+      <form class="form" data-inquiry="membership" novalidate aria-labelledby="join-h">
+        <div class="f"><label for="m-name">Your name</label><input id="m-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="f"><label for="m-email">Email</label><input id="m-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="f"><label for="m-phone">Phone <span class="opt">(optional)</span></label><input id="m-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="f"><label for="m-interest">Membership</label><select id="m-interest" name="interest">
+            <option value="">Not sure yet</option>
+            <option>Sunset</option>
+            <option>All Access, month to month</option>
+            <option>All Access, annual</option>
+          </select></div>
+        <div class="f f--full"><label for="m-message">Questions for us <span class="opt">(optional)</span></label><textarea id="m-message" name="message" maxlength="4000"></textarea></div>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__end"><button class="btn" type="submit">Send</button><p class="form__state" aria-live="polite"></p></div>
+      </form>
+    </div>
+  </section>
+
   <section class="next grid" aria-labelledby="next-h">
     <h2 class="d" id="next-h">Not ready to join?</h2>
     <p>Start with a day pass, and become a member for the day.</p>
     <div class="next__actions">
       <a class="btn" href="{{root}}day-pass/">See day passes</a>
-      <a class="more" href="https://forms.office.com/r/afF9kF59dK">Sign up to learn more</a>
+      <a class="more" href="#inquire">Sign up to learn more</a>
     </div>
   </section>
 </main>
